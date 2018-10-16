@@ -1,12 +1,13 @@
 // ConsoleApplication1.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
+#include <math.h>
 
 int main()
 {
-
+//r贸wnanie kwadratowe
 	double a, b, c;
 
 	a = 1;
@@ -14,7 +15,7 @@ int main()
 	c = 3;
 
 	if (b*b - 4 * a*c < 0)
-		std::cout << "brak rozwi箊ania" << std::endl;
+		std::cout << "brak rozwi锟絲ania" << std::endl;
 
 	else if (b*b - 4 * a*c == 0)
 	{
@@ -33,14 +34,54 @@ int main()
 		std::cout << wynik2 << std::endl;
 		std::cout << wynik3 << std::endl;
 	}
-
+//r贸wnanie kwadratowe (liczby zespolone)
 
 		double delta2 = b*b - 4 * a*c;
-	double wynik4 = (-b - sqrt(delta2)) / (2 * a);
+  if (delta2 < 0)
+  {
+//	std::cout << "Re: " << -b/2/a <<std::endl;
+	//std::cout << "Im: " << -sqrt(-delta2)/2/a <<std::endl;
 
-	std::cout << wynik4
-		std::cout << i
-		<< std::endl;
+	std::cout << -b/2/a << -sqrt(-delta2)/2/a <<" i"<<std::endl;
+
+	//std::cout << "Re: " << -b/2/a <<std::endl;
+//	std::cout << "Im: " << +sqrt(-delta2)/2/a <<std::endl;
+	std::cout << -b/2/a <<"+"<< sqrt(-delta2)/2/a <<" i"<<std::endl;
+
+  }
+
+//		std::cout << i	<< std::endl;  //
+
+
+//r贸wnanie liniowe
+
+double e,f;
+
+std::cout << "y=ax+b"<< std::endl;
+
+e=2;
+f=3;
+
+//bmi
+
+double masa, wzrost;
+masa=20; //w kg;
+wzrost =123; //w m
+
+std::cout<< "bmi" <<masa/wzrost/wzrost << std::endl;
+
+//tr贸jk膮t prostok膮tny
+
+double h,i,j;
+
+h=3;
+i=4;
+
+std::cout<< "c=" << sqrt(h*h+(i*i)) << std::endl;
+
+
+
+
 
 
 	; return 0;
