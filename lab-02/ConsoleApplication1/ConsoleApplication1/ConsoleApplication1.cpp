@@ -55,12 +55,29 @@ int main()
 
 //równanie liniowe
 
-double e,f;
+double l,m, n,o,p,r;
+l=11;
+m=-2;
+n=0;
+o=4;
+p=6;
+r=4;
 
-std::cout << "y=ax+b"<< std::endl;
+char x;
 
-e=2;
-f=3;
+std::cout << "py=lx+m"<< std::endl;
+std::cout << "ry=nx+o"<< std::endl;
+
+std:: cout << "y=" <<(l*x+m)/p << std::endl;
+double y = ((l*x+m)/p);
+
+if (n>0)
+{std:: cout << "x=y*r/n-o" << std::endl;
+std:: cout << "x=" << y*r/n-o << std::endl;
+}
+else
+    std:: cout << "brak x" << std::endl;
+
 
 //bmi
 
@@ -79,11 +96,70 @@ i=4;
 
 std::cout<< "c=" << sqrt(h*h+(i*i)) << std::endl;
 
+//ciąg Fibbonaciego
+double k;
+int fib (int k);
+if (k<3)
+
+      return 1;
+else
+return fib (k-2) + fib (k-1);
+
+
+//tabele
+/*
+
+double rozmiar = 5;
+double tablica;
+tablica [0] = 1;
+tablica [rozmiar - 1] = 50;
+ //petla
+
+ double z=0;
+ while (z<rozmiar);
+ {
+     tablica [z]=z;
+     std::cout<<z<< std:: endl;
+     std::cout << tablica [z] << std::endl;
+     z++ }
+
+*/
 
 
 
 
 
+
+
+
+/*
+
+double l,m,n,o,p,r;
+	std :: cout << "wypisz współczynniki funkcji: " << std :: endl;
+	std :: cout << "l= " << std :: endl;
+	std :: cin >> l;
+	std :: cout << "m=  " << std :: endl;
+	std :: cin >> m;
+	std :: cout << "n= " << std :: endl;
+	std :: cin >> n;
+	std :: cout << "o= " << std :: endl;
+	std :: cin >> o;
+	std :: cout << "p= " << std :: endl;
+	std :: cin >> p;
+	std :: cout << "r= " << std :: endl;
+	std :: cin >> r;
+	char x;
+	std :: cout << "py = lx + m " <<  std::endl;
+	std::cout << "ry = nx + o " << std::endl;
+	std::cout << "y= " << (l*x*+m)/p << std::endl;
+	double y = ((l*x + m) / p);
+		if (n > 0)
+		{ std::cout << "x=y*r/n-o" << std::endl;
+	std::cout << "x= " << y * r / n - o << std::endl;
+		}
+		else
+			std::cout << "brak x" << std::endl;
+			*/
 	; return 0;
 }
 
