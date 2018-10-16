@@ -71,7 +71,7 @@ std::cout << "ry=nx+o"<< std::endl;
 std:: cout << "y=" <<(l*x+m)/p << std::endl;
 double y = ((l*x+m)/p);
 
-if (n>0)
+if (n=0)
 {std:: cout << "x=y*r/n-o" << std::endl;
 std:: cout << "x=" << y*r/n-o << std::endl;
 }
@@ -95,7 +95,7 @@ h=3;
 i=4;
 
 std::cout<< "c=" << sqrt(h*h+(i*i)) << std::endl;
-
+/*
 //ciąg Fibbonaciego
 double k;
 int fib (int k);
