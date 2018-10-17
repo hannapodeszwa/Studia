@@ -54,12 +54,40 @@ int main()
 
 
 //równanie liniowe
+//A11*x1+A12*x2=B1
+//A21*x1+A22*x2=B2
 
+double A11,A12, A21,A22, B1, B2;
+A11=7;
+A12=2;
+A21=3;
+A22=4;
+B1=99;
+B2=26;
+//std::cout<< "B2="; std::cin >>B2;
+
+double W =A11*A22-A21*A12;
+double Wx1=B1*A22-B2*A12;
+double Wx2=A11*B2-A21*B1;
+if (W != 0)
+{
+std::cout << "x1=" << Wx1/W<< std::endl;
+std::cout << "x2=" << Wx2/W<< std::endl;
+}
+else
+{
+std::cout <<"sprzeczne lub nieokreślone" << std::endl;
+}
+
+
+
+
+/*
 double l,m, n,o,p,r;
 l=11;
 m=-2;
-n=0;
-o=4;
+n=9;
+o=8;
 p=6;
 r=4;
 
@@ -72,12 +100,12 @@ std:: cout << "y=" <<(l*x+m)/p << std::endl;
 double y = ((l*x+m)/p);
 
 if (n=0)
-{std:: cout << "x=y*r/n-o" << std::endl;
+    std:: cout << "brak x" << std::endl;
+else
+  {std:: cout << "x=y*r/n-o" << std::endl;
 std:: cout << "x=" << y*r/n-o << std::endl;
 }
-else
-    std:: cout << "brak x" << std::endl;
-
+*/
 
 //bmi
 
@@ -95,6 +123,9 @@ h=3;
 i=4;
 
 std::cout<< "c=" << sqrt(h*h+(i*i)) << std::endl;
+
+//pole trójkąta
+
 /*
 //ciąg Fibbonaciego
 double k;
@@ -124,11 +155,6 @@ tablica [rozmiar - 1] = 50;
      z++ }
 
 */
-
-
-
-
-
 
 
 
