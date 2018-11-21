@@ -46,7 +46,9 @@ int main()
 	double(*pfunkcja)(double x);
 	//std::cout << calkuj(0, 5, 100, (*pfunkcja)) << std::endl;
 	std::cout << calkuj(0, acos(-1), 1000, sin) << std::endl;
+
 	double(*tab[])(double x) = { funkcja, sin,cos,sqrt };
+
 	int rozmiar = 4;
 	for (int i = 0; i < rozmiar;i++)
 	{
