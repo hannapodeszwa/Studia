@@ -71,3 +71,78 @@ int main()
     return 0;
 }
 
+/*
+
+#include "stdafx.h"
+#include <fstream>
+#include <string>
+#include <cmath>
+
+bool f(const string &nazwa)
+{
+	//jak struktura danych
+	bool tab[8][8] = { 0 };
+	//wczytanie szachownicy ze strumienia
+	std::ifstream nazwa("szachownica")
+		if (nazwa)
+		{
+			string linia;
+			int wiersz = 0;
+			while (std::getline(wejscie, linia))
+			{
+				for (int i = 0; i < 8; i++)
+					if (linia[i] == 'H')
+						tab[wiersz][i] = true;
+				wiersz++;
+			}
+			nazwa.close()
+			/// konczymy wczytywanie danych z pliku
+		}
+		// rozpoczynay weryfikacje
+
+	/*
+
+				if (H)
+					int licznik = 0;
+					for (int i = 0; i < 8; i++)
+						for (int j = 0; i < 8; i++)
+					{
+						if (tab[i][j] == 'H')
+							licznik++;
+						if (licznik > 1)
+							return false;
+					}
+				for (int i = 0; i < 8; i++)
+					for (int j = 0; i < 8; i++)
+					{
+						if (tab[i][j] == 'H')
+							licznik++;
+						if (licznik > 1)
+							return false;
+					}
+				/*for (int i = 8; i < 0; i--)
+					for (int j = 8; i < 0; i--)
+					{
+						if (tab[i][j] == 'H')
+							licznik++;
+						if (licznik > 1)
+							return false;
+					}
+				else return true;
+				if (.)
+			}
+
+			nazwa.close();
+		}
+		//sprawdzenie wierszy
+		*/
+/*
+return true; // na razie zwraca zawsze true;
+
+	}
+	int main()
+	{
+		f(std::cout)
+			return 0;
+	}
+*/
