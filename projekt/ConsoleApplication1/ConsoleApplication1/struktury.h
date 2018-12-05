@@ -14,4 +14,20 @@ struct trasa
 	double odleglosc;
 };
 
+struct miasta_sasiednie;
+struct miastaglowne // miasto (?)
+{
+    std::string nazwamiasta;
+    miastaglowne * kolejnemiasto;
+    miasta_sasiednie *miastaobok;
+};
+
+struct miasta_sasiednie   // droga (?)
+{
+        int trasa;
+        miasta_sasiednie * miastokolejne;
+        miastaglowne * nastepnemiasto;
+        bool odwiedzony;
+};
+
 #endif
