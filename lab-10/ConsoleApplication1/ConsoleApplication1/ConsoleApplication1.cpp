@@ -43,7 +43,7 @@ void wypisz(element *pHead, element *pTail)
 
 void dodajDoListyPosortowanej(element *&pHead, element *&pTail, const typ &liczba)
 {
-	if (! pHead)
+	if (pHead==nullptr)
 		dodajNaPoczatek(pHead, pTail, liczba);
 
 	if (liczba < pHead->wartosc)
@@ -65,8 +65,8 @@ void dodajDoListyPosortowanej(element *&pHead, element *&pTail, const typ &liczb
 	else
 	{
 		element * pNowy = new element{ liczba,pHead,pHead->pPrev };
-		while (liczba > pHead->wartosc)
-			pHead = pNowy->pNext;
+		while (liczba < pHead->wartosc)
+			pHead = pHead->pNext;
 
 		pNowy->pNext = pHead;
 		pNowy->pPrev = pHead->pPrev;
@@ -95,9 +95,10 @@ int main()
 		wypisz(pGlowa, pKoniec);
 		usun(pGlowa, pKoniec);
 		wypisz(pGlowa, pKoniec);
-		for (int i : {6, 6, 6, 6, 5,2,1,2,4,7,3,5,3,6,3,56,3})
-		dodajDoListyPosortowanej(pGlowa, pKoniec, i);
+		for (int i : {9,7,6,4,3,2})
+			dodajDoListyPosortowanej(pGlowa, pKoniec, i);
 		wypisz(pGlowa, pKoniec);
+		usun(pGlowa, pKoniec);
     return 0;
 }
 

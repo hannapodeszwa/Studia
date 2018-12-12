@@ -22,19 +22,5 @@ struct droga
         droga * pdroga;
         miasto * pmiasto;
 };
-/*
-			struct miastaglowne
-			{
-				std::string nazwamiasta;
-				miastaglowne * kolejnemiasto;
-				struct  miasta_sasiednie
-				{
-					int trasa;
-					miasta_sasiednie * miastokolejne;
-					miastaglowne * nastepnemiasto;
-					bool odwiedzony;
-				} *miastaobok;
-			};
-			*/
 
 #endif
