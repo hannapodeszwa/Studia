@@ -95,7 +95,7 @@ int main()
 		wypisz(pGlowa, pKoniec);
 		usun(pGlowa, pKoniec);
 		wypisz(pGlowa, pKoniec);
-		for (int i : {6, 6, 6, 6, 5,2,1,2,4,7,3,5,3,6,3,56,3})
+		for (int i : {3,2,4,1,5})
 		dodajDoListyPosortowanej(pGlowa, pKoniec, i);
 		wypisz(pGlowa, pKoniec);
     return 0;
