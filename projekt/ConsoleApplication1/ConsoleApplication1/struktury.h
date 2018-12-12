@@ -23,4 +23,10 @@ struct droga
         miasto * pmiasto;
 };
 
+struct wynik
+{
+	int odleglosc;
+	miasto * poprzednik;
+};
+
 #endif

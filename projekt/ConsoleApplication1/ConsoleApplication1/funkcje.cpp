@@ -97,6 +97,11 @@ void algorytm(std::string startowy, miasto* pHead)
 
 }
 
+void dodajDoListyWynik()
+{
+
+}
+
 /*
 			//usuwanie grafu
 			void usunmiastasasiednie(miasta_sasiednie * &pHead)
