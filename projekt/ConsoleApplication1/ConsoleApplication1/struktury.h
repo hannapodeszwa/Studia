@@ -7,27 +7,20 @@
 #ifndef STRUKTURY_H  
 #define STRUKTURY_H
 
-struct trasa
-{
-	std::string miasto1, miasto2;
-
-	double odleglosc;
-};
-
-struct miasta_sasiednie;
-struct miastaglowne // miasto (?)
+struct droga;
+struct miasto 
 {
     std::string nazwamiasta;
-    miastaglowne * kolejnemiasto;
-    miasta_sasiednie *miastaobok;
+    miasto * pmiasto;
+    droga *miastaobok;
+	bool odwiedzony;
 };
 
-struct miasta_sasiednie   // droga (?)
+struct droga   
 {
         int trasa;
-        miasta_sasiednie * miastokolejne;
-        miastaglowne * nastepnemiasto;
-        bool odwiedzony;
+        droga * pdroga;
+        miasto * pmiasto;
 };
 
 #endif

@@ -1,168 +1,114 @@
-
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <iomanip>
-
+#include "string.h"
 #include "pch.h"
 #include "struktury.h"
+#include "funkcje.h"
+//#include "vld.h""
 
-//funkcja do wpisania nowych nazw miast glownych
-
-void wypisz_miastaglowne(miastaglowne * &pHead, std::string nowanazwa)
-{
-	miastaglowne * pNowy = new miastaglowne;
-	pNowy->nazwamiasta = nowanazwa;
-	pNowy->kolejnemiasto = pHead;
-	pNowy->miastaobok = nullptr;
-	pHead = pNowy;
-}
-
-void wypisz_miastasasiednie(miasta_sasiednie * &pHead, int kilometry)
-{
-
-}
-/*
-			//usuwanie grafu
-			void usunmiastasasiednie(miasta_sasiednie * &pHead)
-			{
-				while (pHead)
-				{
-					miasta_sasiednie * pNastepnik = pHead->
-				}
-
-			}
-			*/
-
+// sprawdzanie argumentow wywolania programu
+// wczytac dane do struktury danych
+// alg. Dijkstry
+// wypisanie wyniku
+// zwolnienie pamieci
+// return 0;
 
 int main(int ile, char ** params)
-{
-    
-    // sprawdzanie argumentow wywolania programu
-    
-    // wczytac dane do struktury danych
-    
-    // alg. Dijkstry
-    
-    // wypisanie wyniku
-    
-    // zwolnienie pamieci
-    
-    // return 0;
-    
+{	
+	/*
+	ile = 6;
+	params[1] = "-i";
+	params[2] = "wejscie";
+	params[3] = "-o";
+	params[4] = "wyjscie";
+	params[5] = "-s";
+	params[6] = "start";
+	*/
+	std::string wejscie;
+	std::string wyjscie;
+	std::string start;
+	while (ile > 1)
+	{
+		if (strcmp(params[1], "-i") == 0)
+		{
+			wejscie = params[2];
+				ile -= 2;
+				params += 2;
+				continue;
+		}
+		if (strcmp(params[1], "-o") == 0)
+		{
+			wyjscie = params[2];
+			ile -= 2;
+			params += 2;
+			continue;
+		}
+		if (strcmp(params[1], "-s") == 0)
+		{
+			start = params[2];
+			ile -= 2;
+			params += 2;
+			continue;
+		}
+	}   
+	std::cout << wejscie << std::endl;
+	
 	//wypisanie danych z pliku
 	std::string miasto1;
 	std::string miasto2;
 	int odleglosc;
+	int licznik_miast = 0;
 
-	std::ifstream plik("miasta.txt");
+	miasto * pGlowa = nullptr;
+
+	std::ifstream plik("miasta.txt");//(wejscie);
 	if (plik)
 	{
 		std::string linia;
-
+		int licznik = 0;
 		while (std::getline(plik, linia))
 		{
+			licznik++;
 			std::stringstream ss;
 
 			ss << linia;
 
-			ss >> miasto1 >> miasto2 >> odleglosc;  //dane wypisane
-            // KS: Co z nieprawid³owymi danymi?
-            
-			// stworzenie grafu (listy list)	
-			
+			miasto1 = "";
+			miasto2 = "";
+			odleglosc = -1;
+			ss >> miasto1 >> miasto2 >> odleglosc; 
+			std::cout << miasto1<<" " <<miasto2<<" "<<odleglosc<< std::endl; //dane wypisane
 
-			
-			/*
-			struct miastaglowne
+			if (miasto1 == "" || miasto2 == "" || odleglosc <= 0)
 			{
-				std::string nazwamiasta;
-				miastaglowne * kolejnemiasto;
-				struct  miasta_sasiednie
-				{
-					int trasa;
-					miasta_sasiednie * miastokolejne;
-					miastaglowne * nastepnemiasto;
-					bool odwiedzony;
-				} *miastaobok;
-			};
-			*/
-			miastaglowne * pGlowa = nullptr;
-			//funkcja do wpisania nowych nazw miast glownych
-		
-			wypisz_miastaglowne(pGlowa, miasto1);
-		}
+				std::cout << "blad w wierszu " << licznik << std::endl;
+				continue; //powrot do while
+			}
+			stworz_miasto(pGlowa, miasto1, licznik_miast);
+			stworz_miasto(pGlowa, miasto2, licznik_miast);
 
+			droga * pGlowa_droga = nullptr;
+			stworz_droga(pGlowa, odleglosc, miasto1, miasto2); // stworzenie grafu (listy list)
+		}
+	
 		plik.close();
 	}
-	
+	/*else
+	{
+		throw std::system_error(errno, std::system_category());
 
-	/*
-	struct listamiastglownych
-{
-  listamiastglownych * next;
-  int v;
-};
+	}*/
+	std::cout << "/////////////////////////////////////////////////////" << std::endl;
+	wypisz_miasto(pGlowa);
+	const int rozmiar = licznik_miast;
+	std::cout << rozmiar;
+	//int koszt_dojscia[rozmiar];
+	//std::string trasa_miasta[rozmiar];
+	//algorytm(start, pGlowa);
 
-int main()
-{
-  int n,m,i,v1,v2;                     //ilosc miast (wierzcholki), lini pliku (krawedzie), punkt poczatkowy i koncowy
-  listamiastglownych ** A;             // A jest wskaznikiem na wskaznik listamiastglownych (czyli next?)?
-  listamiastglownych *p,*r;            //p i r sa wskaznikiem na listamiastglownych
-
-  cin >> n >> m;         // Czytamy liczb? wierzcho?ków i kraw?dzi //ilosc miast i ilosc lini w pliku
-
-  A = new listamiastglownych * [n]; // Tworzymy tablic? list s?siedztwa  // zamienic tablice na liste?
-
-  // Tablic? wype?niamy pustymi listami
-
-  for(i = 0; i < n; i++) A[i] = NULL;         
-
-  // Odczytujemy kolejne definicje kraw?dzi
-
-  for(i = 0; i < m; i++)
-  {
-    cin >> v1 >> v2;    // Wierzcho?ek startowy i ko?cowy kraw?dzi
-    p = new listamiastglownych;    // Tworzymy nowy element
-    p->v = v2;          // Numerujemy go jako v2
-    p->next = A[v1];    // Dodajemy go na pocz?tek listy A[v1]
-    A[v1] = p;
-  }
-
-  cout << endl;
-
-  // Wypisujemy zawarto?? tablicy list s?siedztwa
-
-  for(i = 0; i < n; i++)
-  {
-    cout << "A[" << i << "] =";
-    p = A[i];
-    while(p)
-    {
-      cout << setw(3) << p->v;
-      p = p->next;
-    }
-    cout << endl;
-  }
-
-  // Usuwamy tablic? list s?siedztwa
-
-  for(i = 0; i < n; i++)
-  {
-    p = A[i];
-    while(p)
-    {
-      r = p;
-      p = p->next;
-      delete r;
-    }
-  }
-  delete [] A;
-
-  cout << endl;
-	*/
-	
-return 0;
+ return 0;
 }
 
