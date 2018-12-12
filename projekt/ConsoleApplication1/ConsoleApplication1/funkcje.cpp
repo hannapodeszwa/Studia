@@ -18,7 +18,7 @@ void stworz_miasto(miasto * &pHead_miasto, std::string nowanazwa, int &licznik)
 			return;
 		p = p->pmiasto;
 	}
-	//jesli miasto nie jest juz w liscie
+	//jesli miasto nie jest jeszcze w liscie
 	miasto * pNowy = new miasto{ nowanazwa, pHead_miasto, nullptr, 0 };
 	pHead_miasto = pNowy;
 	licznik++;
@@ -72,8 +72,29 @@ void wypisz_miasto(miasto * pHead)
  //algorytm Dijkstry
 void algorytm(std::string startowy, miasto* pHead)
 {
-	//miasto startowe odwiedzony
-	//sprawdzic które miasto jest najblizej od miasta startowego 
+	int Najkrotsza_droga = 10000000;
+	miasto * p = pHead;
+	while (p) 
+	{
+		if (startowy == p->nazwamiasta)
+			break; 
+		p = p->pmiasto;
+	}
+	while (p->odwiedzony == 0)
+	{
+		p->odwiedzony = 1;
+		droga * nastepny = p->miastaobok;
+		while (nastepny)
+		{
+			if (Najkrotsza_droga > nastepny->trasa)
+			{
+				nastepny->trasa = Najkrotsza_droga;
+				miasto * najblizsz_miasto = nastepny->pmiasto; //wskaznik na miasto, do ktorego jest najblizej
+			}
+			nastepny = nastepny->pdroga;
+		}
+	}
+
 }
 
 /*

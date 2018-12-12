@@ -30,5 +30,11 @@ void stworz_droga(miasto * pHead_miasto, int kilometry, std::string nowe_miasto1
 @return Funkcja nie zwraca niczego.
 */
 void wypisz_miasto(miasto * pHead);
+/*Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast
+@param startowy
+@param pHead
+@return Funkcja nie zwraca niczego.
+*/
+void algorytm(std::string startowy, miasto* pHead);
 
 #endif
