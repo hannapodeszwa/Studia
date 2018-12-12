@@ -55,7 +55,8 @@ int main(int ile, char ** params)
 		}
 	}   
 	std::cout << wejscie << std::endl;
-	
+	std::cout << wyjscie << std::endl;
+	std::cout << start << std::endl;
 	//wypisanie danych z pliku
 	std::string miasto1;
 	std::string miasto2;
@@ -103,6 +104,8 @@ int main(int ile, char ** params)
 	}*/
 	std::cout << "/////////////////////////////////////////////////////" << std::endl;
 	wypisz_miasto(pGlowa);
+
+	//algorytm Dijkstry
 	const int rozmiar = licznik_miast;
 	std::cout << rozmiar;
 	//int koszt_dojscia[rozmiar];
