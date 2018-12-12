@@ -95,8 +95,13 @@ int main()
 		wypisz(pGlowa, pKoniec);
 		usun(pGlowa, pKoniec);
 		wypisz(pGlowa, pKoniec);
+<<<<<<< HEAD
+		for (int i : {3,2,4,1,5})
+		dodajDoListyPosortowanej(pGlowa, pKoniec, i);
+=======
 		for (int i : {9,7,6,4,3,2})
 			dodajDoListyPosortowanej(pGlowa, pKoniec, i);
+>>>>>>> c4626064dd32c774f8057d8d11ab738592e0525f
 		wypisz(pGlowa, pKoniec);
 		usun(pGlowa, pKoniec);
     return 0;
