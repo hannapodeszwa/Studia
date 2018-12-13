@@ -70,20 +70,17 @@ void wypisz_miasto(miasto * pHead)
 	}
 }
  //algorytm Dijkstry
-void algorytm(std::string startowy, miasto* pHead, miasto* pGlowa_wynik)
+void algorytm(std::string startowy, miasto* pHead, wynik * pHead_wynik)
 {
 	int Najkrotsza_droga = INT_MAX;
 	miasto * p = pHead;
-	
 	miasto * najblizsze_miasto = nullptr;
 	while (p) 
 	{
 		if (startowy == p->nazwamiasta)
 			break; 
-	//	p->odwiedzony == 0;
 		p = p->pmiasto;
 	}
-
 	while (p->odwiedzony == 0)
 	{
 		p->odwiedzony = 1;
@@ -99,7 +96,7 @@ void algorytm(std::string startowy, miasto* pHead, miasto* pGlowa_wynik)
 			nastepny = nastepny->pdroga;
 			nastepny = p->miastaobok;
 		}
-		dodajDoListyWynik(pGlowa_wynik, Najkrotsza_droga, najblizsze_miasto, poprzednie); // zapisanie wyniku do listy
+		dodajDoListyWynik(pHead_wynik, Najkrotsza_droga, najblizsze_miasto, poprzednie); // zapisanie wyniku do listy
 	}
 
 }
@@ -157,15 +154,82 @@ bool sprawdz_argumenty(int ile, char ** params , std::string wejscie, std::strin
 	}
 	return true;
 }
-/*
 
+void wczytajzPliku(std::string wejscie, std::string miasto1, std::string miasto2, int odleglosc, miasto * pGlowa, int licznik_miast)
+{
+	std::ifstream plik("miasta.txt");//plik(wejscie); //("miasta.txt");
+	if (plik)
+	{
+
+		std::cout << "plik otwarty" << std::endl;
+
+		std::string linia;
+		int licznik = 0;
+		while (std::getline(plik, linia))
+		{
+			licznik++;
+			std::stringstream ss;
+
+			ss << linia;
+
+			miasto1 = "";
+			miasto2 = "";
+			odleglosc = -1;
+			ss >> miasto1 >> miasto2 >> odleglosc;
+			//std::cout << miasto1 << " " << miasto2 << " " << odleglosc << std::endl; //dane wypisane
+
+			if (miasto1 == "" || miasto2 == "" || odleglosc <= 0)
+			{
+				std::cout << "blad w wierszu " << licznik << std::endl;
+				continue; //powrot do while
+			}
+			stworz_miasto(pGlowa, miasto1, licznik_miast);
+			stworz_miasto(pGlowa, miasto2, licznik_miast);
+
+			droga * pGlowa_droga = nullptr;
+			stworz_droga(pGlowa, odleglosc, miasto1, miasto2);// stworzenie grafu (listy list)
+		}
+
+		plik.close();
+
+	}
+}
 			//usuwanie grafu
-			void usunmiastasasiednie(miasta_sasiednie * &pHead)
+			void usun_droge(miasto*pmiasto)
+			{
+				while (pmiasto)
+				{
+					while (pmiasto->miastaobok)
+					{
+						droga * pNastepnik = pmiasto->miastaobok->pdroga;
+						delete pmiasto->miastaobok;
+						pmiasto->miastaobok = pNastepnik;
+					}
+					pmiasto = pmiasto->pmiasto;
+				}
+			}
+			void usun_miasta(miasto* &pHead)
 			{
 				while (pHead)
 				{
-					miasta_sasiednie * pNastepnik = pHead->
+					miasto * pNastepnik = pHead->pmiasto;
+					delete pHead;
+					pHead = pNastepnik;
 				}
-
 			}
-			*/
+			void usun_wynik(wynik * &pHead)
+			{
+				while (pHead)
+				{
+					wynik * pNastepnik = pHead->pwynik;
+					delete pHead;
+					pHead = pNastepnik;
+				}
+			}
+
+			void usun(miasto * glowa_miasta, wynik * glowa_wynik )
+			{
+				usun_droge(glowa_miasta);
+				usun_miasta(glowa_miasta);
+				usun_wynik(glowa_wynik);
+			}

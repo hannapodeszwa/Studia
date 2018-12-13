@@ -37,7 +37,7 @@ void wypisz_miasto(miasto * pHead);
 @param pHead wskaznik na pierwszy element listy
 @return Funkcja nie zwraca niczego.
 */
-void algorytm(std::string startowy, miasto* pHead, miasto*pGlowa_wynik);
+void algorytm(std::string startowy, miasto* pHead, wynik *pHead_wynik);
 
 /*Funkcja dodaje wynik do listy
 @param pHead wskaznik na pierwszy element listy
@@ -54,6 +54,46 @@ void dodajDoListyWynik(wynik * & pHead, int odleglosc, miasto * aktualne, miasto
 */
 void wypisz_wynik(wynik * pHead);
 
+/*Funkcja sprawdza argumenty wywolania programu
+@param ile ilosc argumentow
+@param params tablica argumentow
+@param wejscie plik wejsciowy
+@param wyjscie plik wyjsciowy
+@param start miasto startowe
+@return Funkcja nie zwraca niczego.
+*/
 bool sprawdz_argumenty(int ile, char ** params, std::string wejscie, std::string wyjscie, std::string start);
+
+/*Funkcja wczytuje dane z pliku
+@param wejscie
+@param miasto
+@return Funkcja nie zwraca niczego.
+*/
+void wczytajzPliku(std::string wejscie, std::string miasto1 , std::string miasto2, int odleglosc, miasto * pGlowa, int licznik_miast);
+
+/*Funkcja usuwa liste drog
+@param pmiasto wskaznik na kolejne miasto
+@return Funkcja nie zwraca niczego.
+*/
+void usun_droge( miasto*pmiasto);
+
+/*Funkcja usuwa liste miast
+@param pHead wskaznik na pierwszy element listy
+@return Funkcja nie zwraca niczego.
+*/
+void usun_miasta(miasto* &pHead);
+
+/*Funkcja usuwa liste wyników
+@param pHead wskaznik na pierwszy element listy
+@return Funkcja nie zwraca niczego.
+*/
+void usun_wynik(wynik * &pHead);
+
+/*Funkcja usuwa liste miast,drog i wynikow
+@param glowa_miasta wskaznik na pierwszy element listy miast
+@param glowa_wynik wskaznik na pierwszy element listy wynikow
+@return Funkcja nie zwraca niczego.
+*/
+void usun(miasto * glowa_miasta, wynik * glowa_wynik);
 
 #endif

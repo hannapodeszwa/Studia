@@ -26,6 +26,8 @@ int main(int ile, char ** params)
 	const std::string wyjscie("-o");
 	const std::string start("-s");
 
+	//int params_ok = 1;
+	//start == "Szczecin";
     bool params_ok = sprawdz_argumenty (ile, params, wejscie, wyjscie, start);
 	if (params_ok)
 	{
@@ -35,12 +37,13 @@ int main(int ile, char ** params)
 		//wypisanie danych z pliku
 		std::string miasto1;
 		std::string miasto2;
-		int odleglosc;
+		int odleglosc=INT_MAX;
 		int licznik_miast = 0;
 
 		miasto * pGlowa = nullptr;
 
-		std::ifstream plik(wejscie); //("miasta.txt");
+		//wczytajzPliku(wejscie, miasto1, miasto2, odleglosc, pGlowa, licznik_miast);
+		std::ifstream plik("miasta.txt");//plik(wejscie); //("miasta.txt");
 		if (plik)
 		{
 
@@ -59,7 +62,7 @@ int main(int ile, char ** params)
 				miasto2 = "";
 				odleglosc = -1;
 				ss >> miasto1 >> miasto2 >> odleglosc;
-				std::cout << miasto1 << " " << miasto2 << " " << odleglosc << std::endl; //dane wypisane
+				//std::cout << miasto1 << " " << miasto2 << " " << odleglosc << std::endl; //dane wypisane
 
 				if (miasto1 == "" || miasto2 == "" || odleglosc <= 0)
 				{
@@ -70,24 +73,27 @@ int main(int ile, char ** params)
 				stworz_miasto(pGlowa, miasto2, licznik_miast);
 
 				droga * pGlowa_droga = nullptr;
-				stworz_droga(pGlowa, odleglosc, miasto1, miasto2); // stworzenie grafu (listy list)
+				stworz_droga(pGlowa, odleglosc, miasto1, miasto2);// stworzenie grafu (listy list)
 			}
 
 			plik.close();
 
 		}
-
+	
+		
 		std::cout << "/////////////////////////////////////////////////////" << std::endl;
 
 		wypisz_miasto(pGlowa);
-
 		//algorytm Dijkstry
 		wynik * pGlowa_wynik = nullptr;
 		algorytm(start, pGlowa, pGlowa_wynik);
 		wypisz_wynik(pGlowa_wynik);
+
+		usun(pGlowa, pGlowa_wynik);
+
 	}
 	else
-		std::cout << "bledne arugimenty" << std::endl;
+		std::cout << "Bledne argumenty" << std::endl;
  return 0;
 }
 
