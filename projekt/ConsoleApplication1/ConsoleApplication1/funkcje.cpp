@@ -70,39 +70,95 @@ void wypisz_miasto(miasto * pHead)
 	}
 }
  //algorytm Dijkstry
-void algorytm(std::string startowy, miasto* pHead)
+void algorytm(std::string startowy, miasto* pHead, miasto* pGlowa_wynik)
 {
-	int Najkrotsza_droga = 10000000;
+	int Najkrotsza_droga = INT_MAX;
 	miasto * p = pHead;
+	
+	miasto * najblizsze_miasto = nullptr;
 	while (p) 
 	{
 		if (startowy == p->nazwamiasta)
 			break; 
+	//	p->odwiedzony == 0;
 		p = p->pmiasto;
 	}
+
 	while (p->odwiedzony == 0)
 	{
 		p->odwiedzony = 1;
+		miasto * poprzednie = p;
 		droga * nastepny = p->miastaobok;
 		while (nastepny)
 		{
 			if (Najkrotsza_droga > nastepny->trasa)
 			{
 				nastepny->trasa = Najkrotsza_droga;
-				miasto * najblizsz_miasto = nastepny->pmiasto; //wskaznik na miasto, do ktorego jest najblizej
+				najblizsze_miasto = nastepny->pmiasto; //wskaznik na miasto, do ktorego jest najblizej
 			}
 			nastepny = nastepny->pdroga;
+			nastepny = p->miastaobok;
 		}
+		dodajDoListyWynik(pGlowa_wynik, Najkrotsza_droga, najblizsze_miasto, poprzednie); // zapisanie wyniku do listy
 	}
 
 }
 
-void dodajDoListyWynik()
+void dodajDoListyWynik(wynik * &pHead, int odleglosc,miasto * aktualne, miasto * poprzednik)
 {
-
+	wynik * pNowy = new wynik{ odleglosc,poprzednik,aktualne,nullptr };
+	pHead = pNowy;
+}
+void wypisz_wynik(wynik * pHead)
+{
+	while (pHead)
+	{
+		std::cout << std::endl;
+		std::cout << pHead->poprzednik << "  ->  "<<pHead->aktualne<<":  "<<pHead->odleglosc<<" " << std::endl;
+		pHead = pHead->pwynik;
+	}
 }
 
+bool sprawdz_argumenty(int ile, char ** params , std::string wejscie, std::string wyjscie,std::string start)
+{
+	if (ile <= 1)
+		return false;
+	while (ile > 1)
+	{
+		//if (strcmp(params[1], "-i") == 0) 
+		if (std::string (params[1]) == wejscie) 
+		{
+			wejscie = params[2];
+			std::cout << wejscie << std::endl;
+			ile -= 2;
+			params += 2;
+			continue;
+		}
+		//if (strcmp(params[1], "-o") == 0)
+		if (std::string(params[1]) == wyjscie)
+		{
+			wyjscie = params[2];
+			std::cout << wyjscie << std::endl;
+			ile -= 2;
+			params += 2;
+			continue;
+		}
+		//if (strcmp(params[1], "-s") == 0)
+		if (std::string(params[1]) == start)
+		{
+			start = params[2];
+			std::cout << start << std::endl;
+			ile -= 2;
+			params += 2;
+			continue;
+		}
+		if (wejscie == "" || wyjscie == "" || start == "")
+			return false;
+	}
+	return true;
+}
 /*
+
 			//usuwanie grafu
 			void usunmiastasasiednie(miasta_sasiednie * &pHead)
 			{

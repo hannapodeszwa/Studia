@@ -27,6 +27,8 @@ struct wynik
 {
 	int odleglosc;
 	miasto * poprzednik;
+	miasto * aktualne;
+	wynik * pwynik;
 };
 
 #endif
