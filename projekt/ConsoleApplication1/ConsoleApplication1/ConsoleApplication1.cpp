@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <limits>
 #include "string.h"
 #include "pch.h"
 #include "struktury.h"
@@ -22,9 +23,7 @@
 
 int main(int ile, char ** params)
 {	
-    const std::string wejscie("-i");
-	const std::string wyjscie("-o");
-	const std::string start("-s");
+    std::string wejscie, wyjscie, start;
 
 	//int params_ok = 1;
 	//start == "Szczecin";
@@ -35,8 +34,6 @@ int main(int ile, char ** params)
 			debug(params[i]);
 
 		//wypisanie danych z pliku
-		std::string miasto1;
-		std::string miasto2;
 		int odleglosc=INT_MAX;
 		int licznik_miast = 0;
 
@@ -46,7 +43,9 @@ int main(int ile, char ** params)
 		std::ifstream plik("miasta.txt");//plik(wejscie); //("miasta.txt");
 		if (plik)
 		{
-
+            std::string miasto1;
+		    std::string miasto2;
+		
 			std::cout << "plik otwarty" << std::endl;
 
 			std::string linia;
@@ -61,7 +60,7 @@ int main(int ile, char ** params)
 				miasto1 = "";
 				miasto2 = "";
 				odleglosc = -1;
-				ss >> miasto1 >> miasto2 >> odleglosc;
+				ss >> miasto1 >> miasto2 >> odleglosc;  // nie zadziala, jezeli wiersz pusty
 				//std::cout << miasto1 << " " << miasto2 << " " << odleglosc << std::endl; //dane wypisane
 
 				if (miasto1 == "" || miasto2 == "" || odleglosc <= 0)
@@ -93,7 +92,7 @@ int main(int ile, char ** params)
 
 	}
 	else
-		std::cout << "Bledne argumenty" << std::endl;
+		std::cout << "Bledne argumenty" << std::endl; // wyswietl help
  return 0;
 }
 

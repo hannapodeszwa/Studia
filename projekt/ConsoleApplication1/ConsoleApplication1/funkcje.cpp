@@ -116,8 +116,12 @@ void wypisz_wynik(wynik * pHead)
 	}
 }
 
-bool sprawdz_argumenty(int ile, char ** params , std::string wejscie, std::string wyjscie,std::string start)
+bool sprawdz_argumenty(int ile, char ** params , std::string & wejscie, std::string & wyjscie,std::string & start)
 {
+//     const std::string wejscie("-i");
+// 	const std::string wyjscie("-o");
+// 	const std::string start("-s");
+    
 	if (ile <= 1)
 		return false;
 	while (ile > 1)

@@ -14,13 +14,14 @@
 @param nowanazwa nazwa miasta dodawanego do listy
 @param licznik zmienna, w ktorej przechowywana jest ilosc miast 
 @return Funkcja nie zwraca niczego.
+@warning Czy nie byloby lepiej, gdyby funkcja zwracala adres stworzonego miasta?
 */
 void stworz_miasto(miasto * &pHead, std::string nowanazwa, int &licznik);
 
 /*Funkcja dodaje do listy miasta polaczone z 
 @param pHead wskaznik na pierwszy element listy
 @param kilometry odlegosc pomiedzy miastami
-@param nowe_miasto1 nazwa miasta poczatkowego
+@param nowe_miasto1 nazwa miasta poczatkowego // przekazywalby tutaj adres, a nie nazwe
 @param nowe_miasto2 nazwa miasta docelowego
 @return Funkcja nie zwraca niczego.
 */
@@ -54,20 +55,19 @@ void dodajDoListyWynik(wynik * & pHead, int odleglosc, miasto * aktualne, miasto
 */
 void wypisz_wynik(wynik * pHead);
 
-/*Funkcja sprawdza argumenty wywolania programu
+/**Funkcja sprawdza argumenty wywolania programu
 @param ile ilosc argumentow
 @param params tablica argumentow
-@param wejscie plik wejsciowy
-@param wyjscie plik wyjsciowy
-@param start miasto startowe
+@param[out] wejscie plik wejsciowy
+@param[out] wyjscie plik wyjsciowy
+@param[out] start miasto startowe
 @return Funkcja nie zwraca niczego.
 */
-bool sprawdz_argumenty(int ile, char ** params, std::string wejscie, std::string wyjscie, std::string start);
+bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::string & wyjscie, std::string& start);
 
-/*Funkcja wczytuje dane z pliku
+/**Funkcja wczytuje dane z pliku
 @param wejscie
 @param miasto
-@return Funkcja nie zwraca niczego.
 */
 void wczytajzPliku(std::string wejscie, std::string miasto1 , std::string miasto2, int odleglosc, miasto * pGlowa, int licznik_miast);
 
