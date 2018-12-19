@@ -196,7 +196,11 @@ int maksymalnaWysokoscDrzewa (wezel * pRoot)
 
 wezel * minimalny (wezel * pRoot)
 {
-  
+	if (not pRoot)
+		return nullptr;
+	if (pRoot->pLewy)
+		return minimalny(pRoot->pLewy);
+	return pRoot;
 }
 
 
@@ -247,18 +251,59 @@ void wypiszDrzewoWszerz (wezel * pRoot)
 	if (p->pPrawy)
 		return minimalny(p->pPrawy);
 	else
-		while (p == pRoot->pPrawy)
+		/*
+		while (pRoot->pPrawy != p)
+			pRoot = pRoot->pLewy;
+		*/
+		while ( pRoot->wartosc<p->wartosc)
+			
 		{
-			znajdzRodzic(pRoot->pPrawy, p);
+			znajdzRodzic(pRoot, p);
 			p = pRoot->pPrawy;
 		}
-	return znajdzRodzic(pRoot->pLewy, p);
-
-	
-
-				
-
-	
+	return pRoot;
 	
 }
 
+ void usun(wezel * &pRoot, wezel * p)
+ {
+	 if (p == nullptr)
+		 return;
+	 if (p->pLewy == nullptr && p->pPrawy ==nullptr)
+	 {
+		 wezel *pRodzic = znajdzRodzic(pRoot, p);
+		 if (pRodzic->pPrawy == p)
+			 pRodzic->pPrawy = nullptr;
+		 if (pRodzic->pLewy == p)
+			 pRodzic->pLewy = nullptr;
+		 delete p;
+	 }
+	 
+	 if (p->pPrawy && p->pLewy == nullptr)
+	 {
+		 wezel* pNastepny = p->pPrawy;
+		 wezel *pRodzic =znajdzRodzic(pRoot, p); 
+		 if (pRodzic->pPrawy == p)
+			 pRodzic->pPrawy = pNastepny;
+		 if (pRodzic->pLewy == p)
+			 pRodzic->pLewy = pNastepny;
+		 p->pPrawy = nullptr;
+		 delete p;
+	 }
+	 if (p->pLewy && p->pPrawy == nullptr)
+	 {
+		 wezel* pNastepny = p->pLewy;
+		 wezel *pRodzic = znajdzRodzic(pRoot, p);
+		 if (pRodzic->pPrawy == p)
+			 pRodzic->pPrawy = pNastepny;
+		 if (pRodzic->pLewy == p)
+			 pRodzic->pLewy = pNastepny;
+		 p->pLewy = nullptr;
+		 delete p;
+	 }
+	 
+	 /*
+	 if (p->pLewy && p->pPrawy)
+		p->wartosc= znajdzNastepnik(pRoot, p)->wartosc;
+		*/
+ }

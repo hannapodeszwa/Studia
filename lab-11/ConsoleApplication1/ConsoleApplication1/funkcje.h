@@ -111,4 +111,5 @@ void wypiszDrzewoWszerz (wezel * pRoot);
 
 //Funkcja wyszukuje nastepnik wezla p
 wezel * znajdzNastepnik(wezel *pRoot, wezel *p);
+void usun(wezel * &pRoot, wezel * p);
 #endif
