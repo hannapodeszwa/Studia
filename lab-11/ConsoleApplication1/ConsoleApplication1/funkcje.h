@@ -11,6 +11,7 @@ wykład 9 i 10: drzewo poszukiwań binarnych
 #define FUNKCJE_H
 
 #include <iostream> 
+#include "stdafx.h"
 
 /** Typ użyty w drzewie poszukiwań binarnych. */
 typedef int typ;  // będziemy mogli łatwo zmienić typ przechowywany w liście

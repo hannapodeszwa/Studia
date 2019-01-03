@@ -7,9 +7,12 @@ wykład 9: drzewo poszukiwań binarnych
  
  */
 
-#define debug(x)  std::cerr << "(" << __LINE__ << ") " << #x << " == " << (x) << std::endl
+#include "stdafx.h"
+
+//#define debug(x)  std::cerr << "(" << __LINE__ << ") " << #x << " == " << (x) << std::endl
 #define and &&
 #define or ||
+
 #define not !
 
 #include <iostream>
@@ -279,7 +282,7 @@ void wypiszDrzewoWszerz (wezel * pRoot)
 		 delete p;
 	 }
 	 
-	 if (p->pPrawy && p->pLewy == nullptr)
+	 if (p->pPrawy!= nullptr && p->pLewy == nullptr)
 	 {
 		 wezel* pNastepny = p->pPrawy;
 		 wezel *pRodzic =znajdzRodzic(pRoot, p); 
@@ -290,7 +293,7 @@ void wypiszDrzewoWszerz (wezel * pRoot)
 		 p->pPrawy = nullptr;
 		 delete p;
 	 }
-	 if (p->pLewy && p->pPrawy == nullptr)
+	 if (p->pLewy !=nullptr && p->pPrawy == nullptr)
 	 {
 		 wezel* pNastepny = p->pLewy;
 		 wezel *pRodzic = znajdzRodzic(pRoot, p);

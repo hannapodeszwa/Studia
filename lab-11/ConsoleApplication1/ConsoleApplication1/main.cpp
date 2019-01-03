@@ -17,6 +17,7 @@ wykład 9 i 10: drzewo poszukiwań binarnych
 #include <string.h>
 #include <iomanip>
 #include <ios>
+#include "stdafx.h"
 #include <algorithm>
 
 
@@ -36,9 +37,6 @@ int main ()
    // DRZEWO POSZUKIWAŃ BINARNYCH    
    
    wezel * pKorzen = nullptr;      
-    
-  
-
    for (int i : { 5, 2, 8, 1, 0, 6, 3 })
 	   dodajDoDrzewaRekurencyjnie(pKorzen, i);
 

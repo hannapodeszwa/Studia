@@ -23,65 +23,20 @@
 
 int main(int ile, char ** params)
 {	
-    std::string wejscie, wyjscie, start;
-
-	//int params_ok = 1;
-	//start == "Szczecin";
-    bool params_ok = sprawdz_argumenty (ile, params, wejscie, wyjscie, start);
+    std::string wejscie="", wyjscie="", start="";
+   // bool params_ok = sprawdz_argumenty (ile, params, wejscie, wyjscie, start);
+	bool params_ok = true; //TEST
+	std::string startowy = "Szczecin"; //TEST
 	if (params_ok)
 	{
 		for (int i = 0; i < ile; i++)
 			debug(params[i]);
 
 		//wypisanie danych z pliku
-		int odleglosc=INT_MAX;
-		int licznik_miast = 0;
-
 		miasto * pGlowa = nullptr;
-
-		//wczytajzPliku(wejscie, miasto1, miasto2, odleglosc, pGlowa, licznik_miast);
-		std::ifstream plik("miasta.txt");//plik(wejscie); //("miasta.txt");
-		if (plik)
-		{
-            std::string miasto1;
-		    std::string miasto2;
-		
-			std::cout << "plik otwarty" << std::endl;
-
-			std::string linia;
-			int licznik = 0;
-			while (std::getline(plik, linia))
-			{
-				licznik++;
-				std::stringstream ss;
-
-				ss << linia;
-
-				miasto1 = "";
-				miasto2 = "";
-				odleglosc = -1;
-				ss >> miasto1 >> miasto2 >> odleglosc;  // nie zadziala, jezeli wiersz pusty
-				//std::cout << miasto1 << " " << miasto2 << " " << odleglosc << std::endl; //dane wypisane
-
-				if (miasto1 == "" || miasto2 == "" || odleglosc <= 0)
-				{
-					std::cout << "blad w wierszu " << licznik << std::endl;
-					continue; //powrot do while
-				}
-				stworz_miasto(pGlowa, miasto1, licznik_miast);
-				stworz_miasto(pGlowa, miasto2, licznik_miast);
-
-				droga * pGlowa_droga = nullptr;
-				stworz_droga(pGlowa, odleglosc, miasto1, miasto2);// stworzenie grafu (listy list)
-			}
-
-			plik.close();
-
-		}
-	
-		
+		wczytajzPliku(wejscie, pGlowa);
+			
 		std::cout << "/////////////////////////////////////////////////////" << std::endl;
-
 		wypisz_miasto(pGlowa);
 		//algorytm Dijkstry
 		wynik * pGlowa_wynik = nullptr;

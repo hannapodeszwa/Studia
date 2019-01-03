@@ -57,4 +57,9 @@
       <Filter>Pliki zasobów</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Doxyfile">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+  </ItemGroup>
 </Project>
