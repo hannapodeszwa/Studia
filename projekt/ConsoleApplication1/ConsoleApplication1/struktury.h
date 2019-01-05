@@ -11,9 +11,11 @@ struct droga;
 struct miasto 
 {
     std::string nazwamiasta;
-    miasto * pmiasto;
-    droga *miastaobok;
-	bool odwiedzony;
+    miasto * pmiasto;   // nastepne miasto na liœcie miast
+    droga *miastaobok;  // lista dróg z danego miasta
+	bool odwiedzony;    // 
+	int odleglosc_od_centrali;
+	miasto * pMiastoPoprzednie;
 };
 
 struct droga   

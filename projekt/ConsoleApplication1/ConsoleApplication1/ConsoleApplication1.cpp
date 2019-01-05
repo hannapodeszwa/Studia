@@ -23,10 +23,10 @@
 
 int main(int ile, char ** params)
 {	
-    std::string wejscie="", wyjscie="", start="";
-   // bool params_ok = sprawdz_argumenty (ile, params, wejscie, wyjscie, start);
+	std::string wejscie = "", wyjscie = "", start = "";
+  // bool params_ok = sprawdz_argumenty (ile, params, wejscie, wyjscie, start);
 	bool params_ok = true; //TEST
-	std::string startowy = "Szczecin"; //TEST
+	start = "Poznan"; //TEST 
 	if (params_ok)
 	{
 		for (int i = 0; i < ile; i++)
@@ -37,11 +37,12 @@ int main(int ile, char ** params)
 		wczytajzPliku(wejscie, pGlowa);
 			
 		std::cout << "/////////////////////////////////////////////////////" << std::endl;
-		wypisz_miasto(pGlowa);
+//		wypisz_miasto(pGlowa);
 		//algorytm Dijkstry
 		wynik * pGlowa_wynik = nullptr;
+		std::cout << "/////////////////////////////////////////////////////" << std::endl;
 		algorytm(start, pGlowa, pGlowa_wynik);
-		wypisz_wynik(pGlowa_wynik);
+		wypisz_wynik(pGlowa); // wypisanie wyniku
 
 		usun(pGlowa, pGlowa_wynik);
 

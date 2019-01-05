@@ -47,13 +47,15 @@ void algorytm(std::string startowy, miasto* &pHead, wynik *&pHead_wynik);
 @param poprzednik wskaznik na miasto poprzednie
 @return Funkcja nie zwraca niczego.
 */
-void dodajDoListyWynik(wynik * & pHead, int odleglosc, miasto * &aktualne, miasto * &poprzednik);
+void wypisz_wynik(miasto * pHead);
+
+void wypisz_miasta(miasto * pHead);
 
 /**Funkcja wypisuje liste z wynikami
 @param pHead wskaznik na pierwszy element listy
 @return Funkcja nie zwraca niczego.
 */
-void wypisz_wynik(wynik * pHead);
+
 
 /**Funkcja sprawdza argumenty wywolania programu
 @param ile ilosc argumentow
