@@ -4,6 +4,9 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <limits>
+#include <ios>
+#include<limits.h>
 #ifndef funkcje_H  
 #define funkcje_H
 
@@ -12,11 +15,10 @@
 /**Funkcja dodaje nowe miasto do listy
 @param pHead wskaznik na pierwszy element listy
 @param nowanazwa nazwa miasta dodawanego do listy
-@param licznik zmienna, w ktorej przechowywana jest ilosc miast 
 @return Funkcja nie zwraca niczego.
 @warning Czy nie byloby lepiej, gdyby funkcja zwracala adres stworzonego miasta?
 */
-miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa, int &licznik);
+miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa);
 
 /**Funkcja dodaje do listy miasta polaczone z 
 @param pHead wskaznik na pierwszy element listy
@@ -38,24 +40,18 @@ void wypisz_miasto(miasto * pHead);
 @param pHead wskaznik na pierwszy element listy
 @return Funkcja nie zwraca niczego.
 */
-void algorytm(std::string startowy, miasto* &pHead, wynik *&pHead_wynik);
+void algorytm(std::string startowy, miasto* &pHead);
 
-/**Funkcja dodaje wynik do listy
+/**Funkcja dodaje wynik do listy								// DO POPRAWY
 @param pHead wskaznik na pierwszy element listy
 @param odleglosc najkrotsza odleglosc z miasta poczatkowego do kolejnego miasta
 @param aktualne wskaznik na miasto aktualne
 @param poprzednik wskaznik na miasto poprzednie
 @return Funkcja nie zwraca niczego.
 */
-void wypisz_wynik(miasto * pHead);
+void wypisz_wynik(miasto * pHead, std::string wyjscie);
 
-void wypisz_miasta(miasto * pHead);
-
-/**Funkcja wypisuje liste z wynikami
-@param pHead wskaznik na pierwszy element listy
-@return Funkcja nie zwraca niczego.
-*/
-
+void wypisz_miasta(miasto * pHead, std::ostream &wyjscie);
 
 /**Funkcja sprawdza argumenty wywolania programu
 @param ile ilosc argumentow
@@ -85,17 +81,10 @@ void usun_droge( miasto*pmiasto);
 */
 void usun_miasta(miasto* &pHead);
 
-/**Funkcja usuwa liste wyników
-@param pHead wskaznik na pierwszy element listy
-@return Funkcja nie zwraca niczego.
-*/
-void usun_wynik(wynik * &pHead);
-
 /**Funkcja usuwa liste miast,drog i wynikow
 @param glowa_miasta wskaznik na pierwszy element listy miast
-@param glowa_wynik wskaznik na pierwszy element listy wynikow
 @return Funkcja nie zwraca niczego.
 */
-void usun(miasto * glowa_miasta, wynik * glowa_wynik);
+void usun(miasto * glowa_miasta);
 
 #endif

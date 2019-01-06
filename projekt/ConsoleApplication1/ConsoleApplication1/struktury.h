@@ -4,6 +4,9 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <limits>
+#include <ios>
+#include<limits.h>
 #ifndef STRUKTURY_H  
 #define STRUKTURY_H
 
@@ -23,14 +26,6 @@ struct droga
         int trasa;
         droga * pdroga;
         miasto * pmiasto;
-};
-
-struct wynik
-{
-	int odleglosc;
-	miasto * poprzednik;
-	miasto * aktualne;
-	wynik * pwynik;
 };
 
 #endif
