@@ -46,7 +46,7 @@ int main(int ile, char ** params)
 			{
 				std::cout << std::endl;
 				std::cout <<"SPEDYCJA"<< std::endl;
-				std::cout << std::string(params[0]) << " -i <plik_wejœciowy> -s miasto -o <plik_wyjœciowy>" << std::endl;
+				std::cout << std::string(params[0]) << " -i <plik_wejsciowy> -s miasto -o <plik_wyjsciowy>" << std::endl;
 				std::cout << std::endl;
 				std::cout << "Program tworzy najkrotsze mozliwe trasy pomiedzy miastem startowym a wszystkimi innymi miastami" << std::endl;
 				std::cout << std::endl;

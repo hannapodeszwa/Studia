@@ -15,16 +15,15 @@
 /**Funkcja dodaje nowe miasto do listy
 @param pHead wskaznik na pierwszy element listy
 @param nowanazwa nazwa miasta dodawanego do listy
-@return Funkcja nie zwraca niczego.
-@warning Czy nie byloby lepiej, gdyby funkcja zwracala adres stworzonego miasta?
+@return Funkcja zwraca wskaünik na nowoutworzone miasto.
 */
 miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa);
 
 /**Funkcja dodaje do listy miasta polaczone z 
-@param pHead wskaznik na pierwszy element listy
+@param pHead_miasto wskaznik na pierwszy element listy
 @param kilometry odlegosc pomiedzy miastami
-@param nowe_miasto1 nazwa miasta poczatkowego // przekazywalby tutaj adres, a nie nazwe
-@param nowe_miasto2 nazwa miasta docelowego
+@param nowe_miasto1 wskaznik na  miasto poczatkowe 
+@param nowe_miasto2 wskaznik na  miasto docelowe
 @return Funkcja nie zwraca niczego.
 */
 void stworz_droga(miasto * &pHead_miasto, int kilometry, miasto * &nowe_miasto1, miasto * &nowe_miasto2);
@@ -42,15 +41,18 @@ void wypisz_miasto(miasto * pHead);
 */
 void algorytm(std::string startowy, miasto* &pHead);
 
-/**Funkcja dodaje wynik do listy								// DO POPRAWY
+/**Funkcja zapisuje wynik do pliku wyjsciowego							
 @param pHead wskaznik na pierwszy element listy
-@param odleglosc najkrotsza odleglosc z miasta poczatkowego do kolejnego miasta
-@param aktualne wskaznik na miasto aktualne
-@param poprzednik wskaznik na miasto poprzednie
+@param wyjscie nazwa pliku wyjsciowego
 @return Funkcja nie zwraca niczego.
 */
 void wypisz_wynik(miasto * pHead, std::string wyjscie);
 
+/**Funkcja zapisuje trasy do pliku wyjsciowego								
+@param pHead wskaznik na pierwszy element listy
+@param wyjscie nazwa pliku wyjsciowego
+@return Funkcja nie zwraca niczego.
+*/
 void wypisz_miasta(miasto * pHead, std::ostream &wyjscie);
 
 /**Funkcja sprawdza argumenty wywolania programu
@@ -64,8 +66,8 @@ void wypisz_miasta(miasto * pHead, std::ostream &wyjscie);
 bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::string & wyjscie, std::string& start);
 
 /**Funkcja wczytuje dane z pliku
-@param wejscie
-@param miasto
+@param wejscie nazwa pliku wejsciowego
+@param pGlowa wskaznik na pierwszy element listy
 */
 void wczytajzPliku(std::string wejscie,miasto * &pGlowa);
 
@@ -81,7 +83,7 @@ void usun_droge( miasto*pmiasto);
 */
 void usun_miasta(miasto* &pHead);
 
-/**Funkcja usuwa liste miast,drog i wynikow
+/**Funkcja usuwa liste miast i drog
 @param glowa_miasta wskaznik na pierwszy element listy miast
 @return Funkcja nie zwraca niczego.
 */

@@ -150,29 +150,23 @@ bool sprawdz_argumenty(int ile, char ** params , std::string & wejscie, std::str
 		return false;
 	while (ile > 1)
 	{
-		//if (strcmp(params[1], "-i") == 0) 
 		if (std::string (params[1]) == Wejscie) 
 		{
 			wejscie = params[2];
-			std::cout << wejscie << std::endl;
 			ile -= 2;
 			params += 2;
 			continue;
 		}
-		//if (strcmp(params[1], "-o") == 0)
 		if (std::string(params[1]) == Wyjscie)
 		{
 			wyjscie = params[2];
-			std::cout << wyjscie << std::endl;
 			ile -= 2;
 			params += 2;
 			continue;
 		}
-		//if (strcmp(params[1], "-s") == 0)
 		if (std::string(params[1]) == Start)
 		{
 			start = params[2];
-			std::cout << start << std::endl;
 			ile -= 2;
 			params += 2;
 			continue;
@@ -190,7 +184,7 @@ void wczytajzPliku(std::string wejscie, miasto * &pGlowa)
 	{
 		int odleglosc = INT_MAX;
 		std::cout << "plik otwarty" << std::endl;
-		std::string linia,miasto1,miasto2;
+		std::string linia, miasto1, miasto2;
 		int licznik = 0;
 		while (std::getline(plik, linia))
 		{
@@ -209,9 +203,9 @@ void wczytajzPliku(std::string wejscie, miasto * &pGlowa)
 				std::cout << "blad w wierszu " << licznik << std::endl;
 				continue; //powrot do while
 			}
-			
+
 			miasto* pGlowa1 = stworz_miasto(pGlowa, miasto1);
-			miasto* pGlowa2 =stworz_miasto(pGlowa, miasto2);
+			miasto* pGlowa2 = stworz_miasto(pGlowa, miasto2);
 			droga * pGlowa_droga = nullptr;
 			stworz_droga(pGlowa, odleglosc, pGlowa1, pGlowa2);// stworzenie grafu (listy list)
 		}
@@ -219,6 +213,8 @@ void wczytajzPliku(std::string wejscie, miasto * &pGlowa)
 		plik.close();
 
 	}
+	else
+		std::cout << "NIe udalo sie otworzyc pliku." << std::endl;
 }
 			//usuwanie grafu
 			void usun_droge(miasto*pmiasto)
