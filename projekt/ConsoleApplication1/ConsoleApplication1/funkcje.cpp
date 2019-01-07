@@ -134,6 +134,8 @@ void wypisz_wynik(miasto * pHead, std::string wyjscie)
 			plik << std::endl;
 			p = p->pmiasto;
 		}
+		std::cout << std::endl;
+		std::cout << "Wynik zostal zapisany do pliku" << std::endl;
 		plik.close();
 
 	}

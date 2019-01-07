@@ -55,7 +55,8 @@ int main(int ile, char ** params)
 				std::cout << " -s: miasto startowe" << std::endl;
 				return false;
 			}
-		std::cout << "Bledne argumentyxx" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Bledne argumenty" << std::endl;
 	}
  return 0;
 }

@@ -34,6 +34,12 @@ void stworz_droga(miasto * &pHead_miasto, int kilometry, miasto * &nowe_miasto1,
 */
 void wypisz_miasto(miasto * pHead);
 
+/**Funkcja wypisuje liste drog
+@param pHead_droga wskaznik na pierwszy element listy
+@return Funkcja nie zwraca niczego.
+*/
+void wypisz_droga(droga * pHead_droga);
+
 /**Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast
 @param startowy miasto, od ktorego beda rozpoczynac sie wszystkie trasy
 @param pHead wskaznik na pierwszy element listy
