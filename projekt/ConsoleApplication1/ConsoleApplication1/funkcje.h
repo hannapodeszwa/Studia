@@ -15,7 +15,7 @@
 /**Funkcja dodaje nowe miasto do listy
 @param pHead wskaznik na pierwszy element listy
 @param nowanazwa nazwa miasta dodawanego do listy
-@return Funkcja zwraca wskaünik na nowoutworzone miasto.
+@return Funkcja zwraca wskaznik na nowoutworzone miasto.
 */
 miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa);
 
