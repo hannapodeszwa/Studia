@@ -37,7 +37,7 @@ int main(int ile, char ** params)
 		//algorytm Dijkstry
 		algorytm(start, pGlowa);
 		wypisz_wynik(pGlowa, wyjscie); // wypisanie wyniku
-		usun(pGlowa);
+		usun(pGlowa); 
 	}
 	else
 	{
