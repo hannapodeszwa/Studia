@@ -70,7 +70,8 @@ Zambrow Katowice 88
 Zamosc Katowice 854
 Jastrzebie 
 Sanniki Poznan 47
-Sanok Poznan 10
+Jastrzebie Sanniki Poznan 4
+                   Sanok                    Poznan                10
 Sejny Katowice 34
 Serock  Bytom 52
 Sedziszow Katowice 552
@@ -99,4 +100,4 @@ Siedlce Szczecin 53
 Siemiatycze Gdansk 235
 Sieniawa Gdansk 123
 Sierakow Gdansk 213
-
+Kolobrzeg Gdansk 

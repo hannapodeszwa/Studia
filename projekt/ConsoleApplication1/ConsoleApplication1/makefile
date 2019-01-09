@@ -16,11 +16,14 @@ __ : main
 	./main   
 	./main -i dane.txt -t drzewo.txt -o wyjscie
 	./main -h 
+	./main -i miasta.txt -o trasy -s Zabrze
+	./main -i miasta.txt -o trasy 
+	./main -i miasta.txt -o trasy -s 
+	./main -i miasta.txt -o trasy -h Gliwice
 	
 	
 main : main.o              \
 	funkcje.o          \
-	struktury.o        \
        debug_new.o         \
        mem_pool_base.o     \
        bool_array.o        \
@@ -32,8 +35,6 @@ main : main.o              \
 main.o : ConsoleApplication1.cpp
 	$(kompilator) $(standard) $(debug) $(optymalizacja) $(errors) -c -o $@ $^ 
 funkcje.o : funkcje.cpp
-	$(kompilator) $(standard) $(debug) $(optymalizacja) $(errors) -c -o $@ $^ 
-struktury.o : struktury.cpp
 	$(kompilator) $(standard) $(debug) $(optymalizacja) $(errors) -c -o $@ $^ 
 	            
 # kompilacja biblioteki do kontroli uzycia pamieci

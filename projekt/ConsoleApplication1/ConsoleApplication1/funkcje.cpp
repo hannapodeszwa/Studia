@@ -58,7 +58,7 @@ void wypisz_miasto(miasto * pHead)
 	}
 }
  //algorytm Dijkstry
-void algorytm(std::string startowy, miasto* &pHead)
+void Dijkstra(std::string startowy, miasto* &pHead)
 {
 	miasto * p = pHead;
 	while (p) 
@@ -67,7 +67,8 @@ void algorytm(std::string startowy, miasto* &pHead)
 			break; 
 		p = p->pmiasto;
 	}
-	if (p)  //jesli miasta startowego nie ma w liscie to p=0?
+	
+	if (p)  // jezeli miasto startowe istnieje
 	{
 		p->odleglosc_od_centrali = 0;
 		while (p)
@@ -75,6 +76,8 @@ void algorytm(std::string startowy, miasto* &pHead)
 			p->odwiedzony = 1;
 			miasto * poprzednie = p;
 			droga * nastepny = p->miastaobok;
+            
+            // relaksacja krawedzi grafu
 			while (nastepny)
 			{
 				if(nastepny->pmiasto->odleglosc_od_centrali > poprzednie->odleglosc_od_centrali + nastepny->trasa)
@@ -85,12 +88,13 @@ void algorytm(std::string startowy, miasto* &pHead)
 				}
 				nastepny = nastepny->pdroga;
 			}
+			
 			p = pHead;
 			int Najkrotsza_droga = INT_MAX;
 			miasto * najblizsze_miasto = nullptr;
 			while (p)
 			{
-				if (p->odwiedzony == 0 && Najkrotsza_droga > p->odleglosc_od_centrali)
+				if (! p->odwiedzony && Najkrotsza_droga > p->odleglosc_od_centrali)
 				{
 					Najkrotsza_droga =p->odleglosc_od_centrali;
 					najblizsze_miasto = p; //wskaznik na miasto, do ktorego jest najblizej
@@ -101,7 +105,7 @@ void algorytm(std::string startowy, miasto* &pHead)
 		}
 		return;
 	}
-	std::cout << "Brak miasta startowego" << std::endl;
+	//std::cout << "Brak miasta startowego" << std::endl;
 }
 
 void wypisz_miasta(miasto * pHead, std::ostream &wyjscie)
@@ -173,9 +177,10 @@ bool sprawdz_argumenty(int ile, char ** params , std::string & wejscie, std::str
 			params += 2;
 			continue;
 		}
-		if (wejscie == "" || wyjscie == "" || start == "" || params[1]!="-i" or "-s" or "-o" || params[3] != "-i" or "-s" or "-o" || params[5] != "-i" or "-s" or "-o")
+		if (wejscie == "" || wyjscie == "" || start == "" || params[1]!="-i" /** @todo !!!!! */ or "-s" or "-o" || params[3] != "-i" or "-s" or "-o" || params[5] != "-i" or "-s" or "-o")
 			return false;
 	}
+	
 	return true;
 }
 
@@ -218,34 +223,35 @@ void wczytajzPliku(std::string wejscie, miasto * &pGlowa)
 	else
 		std::cout << "NIe udalo sie otworzyc pliku." << std::endl;
 }
-			//usuwanie grafu
-			void usun_droge(miasto*pmiasto)
-			{
-				while (pmiasto)
-				{
-					while (pmiasto->miastaobok)
-					{
-						droga * pNastepnik = pmiasto->miastaobok->pdroga;
-						delete pmiasto->miastaobok;
-						pmiasto->miastaobok = pNastepnik;
-					}
-					pmiasto = pmiasto->pmiasto;
-				}
-			}
-			void usun_miasta(miasto* &pHead)
-			{
-				while (pHead)
-				{
-					miasto * pNastepnik = pHead->pmiasto;
-					delete pHead;
-					pHead = pNastepnik;
-				}
-			}
-		
-			void usun(miasto * glowa_miasta )
-			{
-				usun_droge(glowa_miasta);
-				usun_miasta(glowa_miasta);
-			}
 
-		
+//usuwanie grafu
+void usun_drogi(miasto*pmiasto)
+{
+    while (pmiasto)
+    {
+        while (pmiasto->miastaobok)
+        {
+            droga * pNastepnik = pmiasto->miastaobok->pdroga;
+            delete pmiasto->miastaobok;
+            pmiasto->miastaobok = pNastepnik;
+        }
+        pmiasto = pmiasto->pmiasto;
+    }
+}
+void usun_miasta(miasto* &pHead)
+{
+    while (pHead)
+    {
+        miasto * pNastepnik = pHead->pmiasto;
+        delete pHead;
+        pHead = pNastepnik;
+    }
+}
+
+void usun(miasto * glowa_miasta )
+{
+    usun_drogi(glowa_miasta);
+    usun_miasta(glowa_miasta);
+}
+
+

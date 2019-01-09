@@ -1,4 +1,8 @@
-#pragma once
+#ifndef funkcje_H  
+#define funkcje_H
+
+
+#pragma once   
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -7,8 +11,6 @@
 #include <limits>
 #include <ios>
 #include<limits.h>
-#ifndef funkcje_H  
-#define funkcje_H
 
 #include "struktury.h"
 
@@ -40,15 +42,17 @@ void wypisz_miasto(miasto * pHead);
 */
 void wypisz_droga(droga * pHead_droga);
 
-/**Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast
+/**Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast   
+ * @todo algorytm Dijkstry
 @param startowy miasto, od ktorego beda rozpoczynac sie wszystkie trasy
 @param pHead wskaznik na pierwszy element listy
-@return Funkcja nie zwraca niczego.
+@return @todo true, gdy ok, false -- cos poszlo nie tak 
+@todo const std::string & startowy
 */
-void algorytm(std::string startowy, miasto* &pHead);
+void Dijkstra(std::string startowy, miasto* &pHead);
 
 /**Funkcja zapisuje wynik do pliku wyjsciowego							
-@param pHead wskaznik na pierwszy element listy
+@param[in, out] pHead wskaznik na pierwszy element listy
 @param wyjscie nazwa pliku wyjsciowego
 @return Funkcja nie zwraca niczego.
 */
@@ -77,11 +81,11 @@ bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::stri
 */
 void wczytajzPliku(std::string wejscie,miasto * &pGlowa);
 
-/**Funkcja usuwa liste drog
+/**Funkcja usuwa listy drog wszystkich miast
 @param pmiasto wskaznik na kolejne miasto
 @return Funkcja nie zwraca niczego.
 */
-void usun_droge( miasto*pmiasto);
+void usun_drogi( miasto*pmiasto);
 
 /**Funkcja usuwa liste miast
 @param pHead wskaznik na pierwszy element listy
@@ -93,6 +97,6 @@ void usun_miasta(miasto* &pHead);
 @param glowa_miasta wskaznik na pierwszy element listy miast
 @return Funkcja nie zwraca niczego.
 */
-void usun(miasto * glowa_miasta);
+void usun(miasto * glowa_miasta);  
 
 #endif

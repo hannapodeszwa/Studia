@@ -1,3 +1,7 @@
+#ifndef STRUKTURY_H  
+#define STRUKTURY_H
+
+
 #pragma once
 #include <iostream>
 #include <fstream>
@@ -7,8 +11,6 @@
 #include <limits>
 #include <ios>
 #include<limits.h>
-#ifndef STRUKTURY_H  
-#define STRUKTURY_H
 
 struct droga;
 struct miasto 

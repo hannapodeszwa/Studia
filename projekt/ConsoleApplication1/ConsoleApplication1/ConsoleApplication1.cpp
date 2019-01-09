@@ -35,12 +35,13 @@ int main(int ile, char ** params)
 		wczytajzPliku(wejscie, pGlowa);
 
 		//algorytm Dijkstry
-		algorytm(start, pGlowa);
+		Dijkstra(start, pGlowa);
 		wypisz_wynik(pGlowa, wyjscie); // wypisanie wyniku
 		usun(pGlowa); 
 	}
 	else
 	{
+        ///@todo do funkcji help
 		if (ile >= 2)
 			if (std::string(params[1]) == std::string("-h")) // wyswietl help
 			{
