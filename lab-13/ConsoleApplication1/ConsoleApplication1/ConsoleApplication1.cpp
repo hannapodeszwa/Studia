@@ -71,7 +71,7 @@ stGenom * wytnij(stGenom *&pGenom, int ile)
 			p = p->pNast;
 			ile--;
 		}
-		//wyzerowanie ostatniego el fragmnetu
+		
 		ostatniGenom->pNast = p;
 		pGenom = p;
 		return pFragment;
@@ -88,14 +88,17 @@ void znajdz(stBakteria * pGlowa, stBakteria *&pNajgorsza, stBakteria *&pNajlepsz
 {
 	stBakteria*p = pGlowa;
 	double najgorsza = INT_MAX;
-	double najlepsza = 0;
+	double najlepsza = -INT_MAX;
 	while (p)
 	{
 		double ocena =ocen(p->pGenom);
 		if (ocena > najlepsza)
+		{
+			najlepsza = ocena;
 			pNajlepsza = p;
-		if(ocena < najgorsza)
-			pNajgorsza=p;
+		}
+		if (ocena < najgorsza)
+			pNajgorsza=p; //...............
 		p = p->pNast;
 	}
 }
@@ -107,14 +110,12 @@ void krzyzuj(stBakteria * pGronkowiec, stBakteria * pPaciorkowiec)
 {
 	if (ile(pGronkowiec->pGenom) <= 1 || ile(pPaciorkowiec->pGenom) <= 1)
 	{
-		std::cout << "Brak mozliwosci krzyzowania." << std::endl;
+		//std::cout << "Brak mozliwosci krzyzowania." << std::endl;
 		return;
 	}
-	stGenom *pFragmentGronkowice = pGronkowiec->pGenom;
-	pFragmentGronkowice=wytnij(pGronkowiec->pGenom, ile(pGronkowiec->pGenom)/2 - (ile(pGronkowiec->pGenom)%2)/2); 
+	stGenom *pFragmentGronkowice = wytnij(pGronkowiec->pGenom, ile(pGronkowiec->pGenom) / 2);// -(ile(pGronkowiec->pGenom) % 2) / 2);
 
-	stGenom *pFragmentPaciorkowiec = pPaciorkowiec->pGenom;
-	pFragmentPaciorkowiec = wytnij(pPaciorkowiec->pGenom, ile(pPaciorkowiec->pGenom) / 2 - (ile(pPaciorkowiec->pGenom)%2)/2);
+	stGenom *pFragmentPaciorkowiec = wytnij(pPaciorkowiec->pGenom, ile(pPaciorkowiec->pGenom) / 2 - (ile(pPaciorkowiec->pGenom)%2)/2);
 
 	dodaj(pGronkowiec->pGenom, pFragmentPaciorkowiec);
 	dodaj(pPaciorkowiec->pGenom, pFragmentGronkowice);
