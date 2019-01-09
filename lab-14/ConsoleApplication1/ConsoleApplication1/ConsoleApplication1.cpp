@@ -32,19 +32,27 @@ kandydat * wytnij(kandydat * &pKandydaci, const std::string &nazwisko)
 	poprzedni->pNext = pKandydaci;
 	if (pKandydaci == nullptr)
 		return nullptr;
+
+	// wycinamy 1.
+
+
+
+	// while (.....)
+	//   p = p->pNext;
+
+	// znalezlismy --> wycinamy
+
 	while (p)
 	{
-		if (p->nazwisko != nazwisko)
+		while (p->nazwisko != nazwisko && p!=nullptr)
 		{
 			poprzedni = p;
 			p = p->pNext;
 		}
-		else
-		{
-			pwynik = p;
-			poprzedni->pNext = p->pNext;
-			return pwynik;
-		}
+
+		pwynik = p;
+		poprzedni->pNext = p->pNext;
+		return pwynik;
 	}
 	return nullptr;
 }
@@ -56,16 +64,20 @@ void dodaj(kandydat * &pHead, kandydat *pK)
 		pHead = pK;
 		return;
 	}
+	kandydat * poprzedni = nullptr;
 	kandydat * p = pHead;
+	poprzedni->pNext = pHead;
 	while (p)
 	{
-		if (pK->nGlosy >= p->nGlosy)
-			pK = pK->pNext;
+		if (pK->nGlosy < p->nGlosy)
+		{
+			poprzedni->pNext = pK;
+			pK->pNext = p;
+		}
 		else
 		{
-			kandydat * nastepny=p->pNext;
-			p->pNext = pK;
-			pK->pNext = nastepny;
+			poprzedni->pNext = p->pNext;
+			pK = pK->pNext;
 		}
 	}
 }
