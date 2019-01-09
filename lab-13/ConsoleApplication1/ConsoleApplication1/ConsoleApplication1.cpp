@@ -60,11 +60,16 @@ stGenom * wytnij(stGenom *&pGenom, int ile)
 			p = p->pNast;
 			ile--;
 		}
+		//wyzerowanie ostatniego el fragmnetu
 		ostatniGenom->pNast = p;
 		pGenom = p;
 		return pFragment;
 	}
 	
+}
+void znajdz(stBakteria * pGlowa,  stBakteria *&pNajgorsza, stBakteria* pNajlepsza)
+{
+
 }
 
 int main()
