@@ -3,7 +3,8 @@ Poznan Bytom 300
 Poznan Lodz 130
 Lodz Katowice 170
 Bytom Katowice 15
-Bytom Wroclaw 180Szczecin Koszalin 110
+Bytom Wroclaw 180
+Szczecin Koszalin 110
 Jastrzebie 33
 Warszawa Krakow 456
 Krakow Gdansk 356
@@ -98,3 +99,4 @@ Siedlce Szczecin 53
 Siemiatycze Gdansk 235
 Sieniawa Gdansk 123
 Sierakow Gdansk 213
+
