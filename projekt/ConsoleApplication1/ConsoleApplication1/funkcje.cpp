@@ -2,52 +2,40 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <limits>
 #include <iomanip>
-
+#include <ios>
+#include<limits.h>
 #include "pch.h"
 #include "struktury.h"
 #include "funkcje.h"
 
 //funkcja do wpisania nowych nazw miast glownych
-void stworz_miasto(miasto * &pHead_miasto, std::string nowanazwa, int &licznik)
+miasto * stworz_miasto(miasto * &pHead_miasto, std::string nowanazwa )
 {
 	miasto * p = pHead_miasto;
 	while (p)
 	{
 		if (nowanazwa == p->nazwamiasta)//jesli miasto jest juz w liscie
-			return;
-		p = p->pmiasto;
+			return p;
+		p = p->pmiasto;  // nastêpne miasto
 	}
-	//jesli miasto nie jest jeszcze w liscie
-	miasto * pNowy = new miasto{ nowanazwa, pHead_miasto, nullptr, 0 };
+	//jesli miasto nie jest jeszcze w liscie, tworzymy nowe
+	miasto * pNowy = new miasto{ nowanazwa, pHead_miasto, nullptr, 0, INT_MAX, nullptr};
 	pHead_miasto = pNowy;
-	licznik++;
+	return pNowy;
 }
 
-void stworz_droga(miasto * pHead_miasto, int kilometry, std::string nowe_miasto1, std::string nowe_miasto2)
+void stworz_droga(miasto * &pHead_miasto, int kilometry,  miasto * &nowe_miasto1,  miasto * &nowe_miasto2)
 {
-	miasto * p = pHead_miasto;
-	while (p) //znalezienie miejsca, w którym bedzie tworzona nowa lista
-	{
-		if (nowe_miasto1 == p->nazwamiasta)
-			break; // miasto zawsze jest na liscie
-		p = p->pmiasto; 
-	} //p jest wskaznikiem na miasto poczatkowe
-	miasto * r = pHead_miasto; //znalezienie miasta, do którego prowadzi trasa
-	while (r)
-	{
-		if (nowe_miasto2 == r->nazwamiasta)
-			break; // miasto zawsze jest na liscie
-		r = r->pmiasto;
-	} // r jest wskaznikiem na miasto docelowe
-	droga * pHead_droga = p->miastaobok; //pierwszy element listy droga
+	droga * pHead_droga = nowe_miasto1->miastaobok; //pierwszy element listy droga
 	
-		droga * pNowy = new droga{ kilometry, pHead_droga, r };
-		p->miastaobok = pNowy;
+		droga * pNowy = new droga{ kilometry, pHead_droga,  nowe_miasto2 };
+		nowe_miasto1->miastaobok = pNowy;
 	
-		pHead_droga = r->miastaobok; //pierwszy element listy droga
-		pNowy = new droga{ kilometry, pHead_droga, p };
-		r->miastaobok = pNowy;
+		pHead_droga = nowe_miasto2->miastaobok; //pierwszy element listy droga
+		pNowy = new droga{ kilometry, pHead_droga, nowe_miasto1 };
+		nowe_miasto2->miastaobok = pNowy;
 }
 
 void wypisz_droga(droga * pHead_droga)
@@ -70,104 +58,135 @@ void wypisz_miasto(miasto * pHead)
 	}
 }
  //algorytm Dijkstry
-void algorytm(std::string startowy, miasto* pHead, wynik * pHead_wynik)
+void algorytm(std::string startowy, miasto* &pHead)
 {
-	int Najkrotsza_droga = INT_MAX;
 	miasto * p = pHead;
-	miasto * najblizsze_miasto = nullptr;
 	while (p) 
 	{
-		if (startowy == p->nazwamiasta)
+		if (startowy == p->nazwamiasta) //CO JESLI STARTOWEGO NIE MA?
 			break; 
 		p = p->pmiasto;
 	}
-	while (p->odwiedzony == 0)
+	if (p)  //jesli miasta startowego nie ma w liscie to p=0?
 	{
-		p->odwiedzony = 1;
-		miasto * poprzednie = p;
-		droga * nastepny = p->miastaobok;
-		while (nastepny)
+		p->odleglosc_od_centrali = 0;
+		while (p)
 		{
-			if (Najkrotsza_droga > nastepny->trasa)
+			p->odwiedzony = 1;
+			miasto * poprzednie = p;
+			droga * nastepny = p->miastaobok;
+			while (nastepny)
 			{
-				nastepny->trasa = Najkrotsza_droga;
-				najblizsze_miasto = nastepny->pmiasto; //wskaznik na miasto, do ktorego jest najblizej
+				if(nastepny->pmiasto->odleglosc_od_centrali > poprzednie->odleglosc_od_centrali + nastepny->trasa)
+				{
+					nastepny->pmiasto->odleglosc_od_centrali = poprzednie->odleglosc_od_centrali + nastepny->trasa;
+		
+					nastepny->pmiasto->pMiastoPoprzednie = poprzednie; //wskaznik na miasto, z ktorego jest najblizej 
+				}
+				nastepny = nastepny->pdroga;
 			}
-			nastepny = nastepny->pdroga;
-			nastepny = p->miastaobok;
+			p = pHead;
+			int Najkrotsza_droga = INT_MAX;
+			miasto * najblizsze_miasto = nullptr;
+			while (p)
+			{
+				if (p->odwiedzony == 0 && Najkrotsza_droga > p->odleglosc_od_centrali)
+				{
+					Najkrotsza_droga =p->odleglosc_od_centrali;
+					najblizsze_miasto = p; //wskaznik na miasto, do ktorego jest najblizej
+				}
+				p = p->pmiasto;
+			}
+			p = najblizsze_miasto;
 		}
-		dodajDoListyWynik(pHead_wynik, Najkrotsza_droga, najblizsze_miasto, poprzednie); // zapisanie wyniku do listy
+		return;
 	}
-
+	std::cout << "Brak miasta startowego" << std::endl;
 }
 
-void dodajDoListyWynik(wynik * &pHead, int odleglosc,miasto * aktualne, miasto * poprzednik)
+void wypisz_miasta(miasto * pHead, std::ostream &wyjscie)
 {
-	wynik * pNowy = new wynik{ odleglosc,poprzednik,aktualne,nullptr };
-	pHead = pNowy;
-}
-void wypisz_wynik(wynik * pHead)
-{
-	while (pHead)
+	if (pHead->pMiastoPoprzednie)
 	{
+		wypisz_miasta(pHead->pMiastoPoprzednie, wyjscie);
+		wyjscie << " -> ";		
+	}
+	wyjscie << pHead->nazwamiasta;
+}
+
+void wypisz_wynik(miasto * pHead, std::string wyjscie)
+{
+	std::ofstream plik(wyjscie);
+	if (plik)
+	{
+		plik << " ---------------- wypisanie tras -------------- " << std::endl;
+
+		miasto * p = pHead;
+		while (p)
+		{
+			if (p->odleglosc_od_centrali == INT_MAX)
+				plik << p->nazwamiasta << ": Brak trasy z centrali " << std::endl;
+			else
+			{
+				wypisz_miasta(p, plik);
+				plik << ":  " << p->odleglosc_od_centrali << " " << std::endl;
+			}
+			plik << std::endl;
+			p = p->pmiasto;
+		}
 		std::cout << std::endl;
-		std::cout << pHead->poprzednik << "  ->  "<<pHead->aktualne<<":  "<<pHead->odleglosc<<" " << std::endl;
-		pHead = pHead->pwynik;
+		std::cout << "Wynik zostal zapisany do pliku" << std::endl;
+		plik.close();
+
 	}
 }
 
 bool sprawdz_argumenty(int ile, char ** params , std::string & wejscie, std::string & wyjscie,std::string & start)
 {
-//     const std::string wejscie("-i");
-// 	const std::string wyjscie("-o");
-// 	const std::string start("-s");
+	const std::string Wejscie("-i");
+ 	const std::string Wyjscie("-o");
+ 	const std::string Start("-s");
     
-	if (ile <= 1)
+
+	if (ile != 7)
 		return false;
 	while (ile > 1)
 	{
-		//if (strcmp(params[1], "-i") == 0) 
-		if (std::string (params[1]) == wejscie) 
+		if (std::string (params[1]) == Wejscie) 
 		{
 			wejscie = params[2];
-			std::cout << wejscie << std::endl;
 			ile -= 2;
 			params += 2;
 			continue;
 		}
-		//if (strcmp(params[1], "-o") == 0)
-		if (std::string(params[1]) == wyjscie)
+		if (std::string(params[1]) == Wyjscie)
 		{
 			wyjscie = params[2];
-			std::cout << wyjscie << std::endl;
 			ile -= 2;
 			params += 2;
 			continue;
 		}
-		//if (strcmp(params[1], "-s") == 0)
-		if (std::string(params[1]) == start)
+		if (std::string(params[1]) == Start)
 		{
 			start = params[2];
-			std::cout << start << std::endl;
 			ile -= 2;
 			params += 2;
 			continue;
 		}
-		if (wejscie == "" || wyjscie == "" || start == "")
+		if (wejscie == "" || wyjscie == "" || start == "" || params[1]!="-i" or "-s" or "-o" || params[3] != "-i" or "-s" or "-o" || params[5] != "-i" or "-s" or "-o")
 			return false;
 	}
 	return true;
 }
 
-void wczytajzPliku(std::string wejscie, std::string miasto1, std::string miasto2, int odleglosc, miasto * pGlowa, int licznik_miast)
+void wczytajzPliku(std::string wejscie, miasto * &pGlowa)
 {
-	std::ifstream plik("miasta.txt");//plik(wejscie); //("miasta.txt");
+	std::ifstream plik(wejscie);
 	if (plik)
 	{
-
+		int odleglosc = INT_MAX;
 		std::cout << "plik otwarty" << std::endl;
-
-		std::string linia;
+		std::string linia, miasto1, miasto2;
 		int licznik = 0;
 		while (std::getline(plik, linia))
 		{
@@ -180,23 +199,24 @@ void wczytajzPliku(std::string wejscie, std::string miasto1, std::string miasto2
 			miasto2 = "";
 			odleglosc = -1;
 			ss >> miasto1 >> miasto2 >> odleglosc;
-			//std::cout << miasto1 << " " << miasto2 << " " << odleglosc << std::endl; //dane wypisane
 
 			if (miasto1 == "" || miasto2 == "" || odleglosc <= 0)
 			{
 				std::cout << "blad w wierszu " << licznik << std::endl;
 				continue; //powrot do while
 			}
-			stworz_miasto(pGlowa, miasto1, licznik_miast);
-			stworz_miasto(pGlowa, miasto2, licznik_miast);
 
+			miasto* pGlowa1 = stworz_miasto(pGlowa, miasto1);
+			miasto* pGlowa2 = stworz_miasto(pGlowa, miasto2);
 			droga * pGlowa_droga = nullptr;
-			stworz_droga(pGlowa, odleglosc, miasto1, miasto2);// stworzenie grafu (listy list)
+			stworz_droga(pGlowa, odleglosc, pGlowa1, pGlowa2);// stworzenie grafu (listy list)
 		}
 
 		plik.close();
 
 	}
+	else
+		std::cout << "NIe udalo sie otworzyc pliku." << std::endl;
 }
 			//usuwanie grafu
 			void usun_droge(miasto*pmiasto)
@@ -221,19 +241,11 @@ void wczytajzPliku(std::string wejscie, std::string miasto1, std::string miasto2
 					pHead = pNastepnik;
 				}
 			}
-			void usun_wynik(wynik * &pHead)
-			{
-				while (pHead)
-				{
-					wynik * pNastepnik = pHead->pwynik;
-					delete pHead;
-					pHead = pNastepnik;
-				}
-			}
-
-			void usun(miasto * glowa_miasta, wynik * glowa_wynik )
+		
+			void usun(miasto * glowa_miasta )
 			{
 				usun_droge(glowa_miasta);
 				usun_miasta(glowa_miasta);
-				usun_wynik(glowa_wynik);
 			}
+
+		

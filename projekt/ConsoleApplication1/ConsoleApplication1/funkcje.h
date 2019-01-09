@@ -4,56 +4,62 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <limits>
+#include <ios>
+#include<limits.h>
 #ifndef funkcje_H  
 #define funkcje_H
 
 #include "struktury.h"
 
-/*Funkcja dodaje nowe miasto do listy
+/**Funkcja dodaje nowe miasto do listy
 @param pHead wskaznik na pierwszy element listy
 @param nowanazwa nazwa miasta dodawanego do listy
-@param licznik zmienna, w ktorej przechowywana jest ilosc miast 
-@return Funkcja nie zwraca niczego.
-@warning Czy nie byloby lepiej, gdyby funkcja zwracala adres stworzonego miasta?
+@return Funkcja zwraca wskaznik na nowoutworzone miasto.
 */
-void stworz_miasto(miasto * &pHead, std::string nowanazwa, int &licznik);
+miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa);
 
-/*Funkcja dodaje do listy miasta polaczone z 
-@param pHead wskaznik na pierwszy element listy
+/**Funkcja dodaje do listy miasta polaczone z 
+@param pHead_miasto wskaznik na pierwszy element listy
 @param kilometry odlegosc pomiedzy miastami
-@param nowe_miasto1 nazwa miasta poczatkowego // przekazywalby tutaj adres, a nie nazwe
-@param nowe_miasto2 nazwa miasta docelowego
+@param nowe_miasto1 wskaznik na  miasto poczatkowe 
+@param nowe_miasto2 wskaznik na  miasto docelowe
 @return Funkcja nie zwraca niczego.
 */
-void stworz_droga(miasto * pHead_miasto, int kilometry, std::string nowe_miasto1, std::string nowe_miasto2);
+void stworz_droga(miasto * &pHead_miasto, int kilometry, miasto * &nowe_miasto1, miasto * &nowe_miasto2);
 
-/*Funkcja wypisuje liste miast
+/**Funkcja wypisuje liste miast
 @param pHead wskaznik na pierwszy element listy
 @return Funkcja nie zwraca niczego.
 */
 void wypisz_miasto(miasto * pHead);
 
-/*Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast
+/**Funkcja wypisuje liste drog
+@param pHead_droga wskaznik na pierwszy element listy
+@return Funkcja nie zwraca niczego.
+*/
+void wypisz_droga(droga * pHead_droga);
+
+/**Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast
 @param startowy miasto, od ktorego beda rozpoczynac sie wszystkie trasy
 @param pHead wskaznik na pierwszy element listy
 @return Funkcja nie zwraca niczego.
 */
-void algorytm(std::string startowy, miasto* pHead, wynik *pHead_wynik);
+void algorytm(std::string startowy, miasto* &pHead);
 
-/*Funkcja dodaje wynik do listy
+/**Funkcja zapisuje wynik do pliku wyjsciowego							
 @param pHead wskaznik na pierwszy element listy
-@param odleglosc najkrotsza odleglosc z miasta poczatkowego do kolejnego miasta
-@param aktualne wskaznik na miasto aktualne
-@param poprzednik wskaznik na miasto poprzednie
+@param wyjscie nazwa pliku wyjsciowego
 @return Funkcja nie zwraca niczego.
 */
-void dodajDoListyWynik(wynik * & pHead, int odleglosc, miasto * aktualne, miasto * poprzednik);
+void wypisz_wynik(miasto * pHead, std::string wyjscie);
 
-/*Funkcja wypisuje liste z wynikami
+/**Funkcja zapisuje trasy do pliku wyjsciowego								
 @param pHead wskaznik na pierwszy element listy
+@param wyjscie nazwa pliku wyjsciowego
 @return Funkcja nie zwraca niczego.
 */
-void wypisz_wynik(wynik * pHead);
+void wypisz_miasta(miasto * pHead, std::ostream &wyjscie);
 
 /**Funkcja sprawdza argumenty wywolania programu
 @param ile ilosc argumentow
@@ -66,34 +72,27 @@ void wypisz_wynik(wynik * pHead);
 bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::string & wyjscie, std::string& start);
 
 /**Funkcja wczytuje dane z pliku
-@param wejscie
-@param miasto
+@param wejscie nazwa pliku wejsciowego
+@param pGlowa wskaznik na pierwszy element listy
 */
-void wczytajzPliku(std::string wejscie, std::string miasto1 , std::string miasto2, int odleglosc, miasto * pGlowa, int licznik_miast);
+void wczytajzPliku(std::string wejscie,miasto * &pGlowa);
 
-/*Funkcja usuwa liste drog
+/**Funkcja usuwa liste drog
 @param pmiasto wskaznik na kolejne miasto
 @return Funkcja nie zwraca niczego.
 */
 void usun_droge( miasto*pmiasto);
 
-/*Funkcja usuwa liste miast
+/**Funkcja usuwa liste miast
 @param pHead wskaznik na pierwszy element listy
 @return Funkcja nie zwraca niczego.
 */
 void usun_miasta(miasto* &pHead);
 
-/*Funkcja usuwa liste wyników
-@param pHead wskaznik na pierwszy element listy
-@return Funkcja nie zwraca niczego.
-*/
-void usun_wynik(wynik * &pHead);
-
-/*Funkcja usuwa liste miast,drog i wynikow
+/**Funkcja usuwa liste miast i drog
 @param glowa_miasta wskaznik na pierwszy element listy miast
-@param glowa_wynik wskaznik na pierwszy element listy wynikow
 @return Funkcja nie zwraca niczego.
 */
-void usun(miasto * glowa_miasta, wynik * glowa_wynik);
+void usun(miasto * glowa_miasta);
 
 #endif

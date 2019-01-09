@@ -40,8 +40,8 @@
 #include <algorithm>            // std::swap
 #include "_nvwa.h"              // NVWA_NAMESPACE_*
 #include "c++11.h"              // _NULLPTR
-#include "static_assert.h"      // STATIC_ASSERT
-
+#include "static_assert.h" 
+ 
 NVWA_NAMESPACE_BEGIN
 
 /**

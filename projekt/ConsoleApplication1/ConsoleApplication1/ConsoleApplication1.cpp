@@ -4,6 +4,8 @@
 #include <sstream>
 #include <iomanip>
 #include <limits>
+
+#include<limits.h>
 #include "string.h"
 #include "pch.h"
 #include "struktury.h"
@@ -23,76 +25,39 @@
 
 int main(int ile, char ** params)
 {	
-    std::string wejscie, wyjscie, start;
-
-	//int params_ok = 1;
-	//start == "Szczecin";
+	std::string wejscie = "", wyjscie = "", start = "";
     bool params_ok = sprawdz_argumenty (ile, params, wejscie, wyjscie, start);
+	
 	if (params_ok)
 	{
-		for (int i = 0; i < ile; i++)
-			debug(params[i]);
-
 		//wypisanie danych z pliku
-		int odleglosc=INT_MAX;
-		int licznik_miast = 0;
-
 		miasto * pGlowa = nullptr;
+		wczytajzPliku(wejscie, pGlowa);
 
-		//wczytajzPliku(wejscie, miasto1, miasto2, odleglosc, pGlowa, licznik_miast);
-		std::ifstream plik("miasta.txt");//plik(wejscie); //("miasta.txt");
-		if (plik)
-		{
-            std::string miasto1;
-		    std::string miasto2;
-		
-			std::cout << "plik otwarty" << std::endl;
-
-			std::string linia;
-			int licznik = 0;
-			while (std::getline(plik, linia))
-			{
-				licznik++;
-				std::stringstream ss;
-
-				ss << linia;
-
-				miasto1 = "";
-				miasto2 = "";
-				odleglosc = -1;
-				ss >> miasto1 >> miasto2 >> odleglosc;  // nie zadziala, jezeli wiersz pusty
-				//std::cout << miasto1 << " " << miasto2 << " " << odleglosc << std::endl; //dane wypisane
-
-				if (miasto1 == "" || miasto2 == "" || odleglosc <= 0)
-				{
-					std::cout << "blad w wierszu " << licznik << std::endl;
-					continue; //powrot do while
-				}
-				stworz_miasto(pGlowa, miasto1, licznik_miast);
-				stworz_miasto(pGlowa, miasto2, licznik_miast);
-
-				droga * pGlowa_droga = nullptr;
-				stworz_droga(pGlowa, odleglosc, miasto1, miasto2);// stworzenie grafu (listy list)
-			}
-
-			plik.close();
-
-		}
-	
-		
-		std::cout << "/////////////////////////////////////////////////////" << std::endl;
-
-		wypisz_miasto(pGlowa);
 		//algorytm Dijkstry
-		wynik * pGlowa_wynik = nullptr;
-		algorytm(start, pGlowa, pGlowa_wynik);
-		wypisz_wynik(pGlowa_wynik);
-
-		usun(pGlowa, pGlowa_wynik);
-
+		algorytm(start, pGlowa);
+		wypisz_wynik(pGlowa, wyjscie); // wypisanie wyniku
+		usun(pGlowa); 
 	}
 	else
-		std::cout << "Bledne argumenty" << std::endl; // wyswietl help
+	{
+		if (ile >= 2)
+			if (std::string(params[1]) == std::string("-h")) // wyswietl help
+			{
+				std::cout << std::endl;
+				std::cout <<"SPEDYCJA"<< std::endl;
+				std::cout << std::string(params[0]) << " -i <plik_wejsciowy> -s miasto -o <plik_wyjsciowy>" << std::endl;
+				std::cout << std::endl;
+				std::cout << "Program tworzy najkrotsze mozliwe trasy pomiedzy miastem startowym a wszystkimi innymi miastami" << std::endl;
+				std::cout << std::endl;
+				std::cout << " -i: plik z danymi wejsciowymi" << std::endl;
+				std::cout << " -o: plik, w ktorym bedzie zapisany wynik" << std::endl;
+				std::cout << " -s: miasto startowe" << std::endl;
+				return false;
+			}
+		std::cout << std::endl;
+		std::cout << "Bledne argumenty" << std::endl;
+	}
  return 0;
 }
 
