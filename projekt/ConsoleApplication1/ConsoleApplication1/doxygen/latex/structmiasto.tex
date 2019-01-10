@@ -7,7 +7,13 @@
 
 
 Collaboration diagram for miasto\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{structmiasto__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,6 +29,24 @@ int \mbox{\hyperlink{structmiasto_a0c3b5abe9b7ab0df2ceb80f9bd3faec3}{odleglosc\+
 \item 
 \mbox{\hyperlink{structmiasto}{miasto}} $\ast$ \mbox{\hyperlink{structmiasto_a8238eaa6785b35e180170ae00996e515}{p\+Miasto\+Poprzednie}}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Struktura miasto 
+\begin{DoxyParams}{Parameters}
+{\em nazwamiasta} & nazwa miasta \\
+\hline
+{\em pmiasto} & wskaznik na nastepne miasto \\
+\hline
+{\em miastaobok} & wskaznik na pierwszy element list drog \\
+\hline
+{\em odwiedzony} & zwraca true, gdy miasto zostalo odwiedzone i false i nie zopstalo odwiedzone \\
+\hline
+{\em odleglosc\+\_\+od\+\_\+centrali} & odleglosc od centrali \\
+\hline
+{\em p\+Miasto\+Poprzednie} & wskaznik na miasto poprzednie \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Member Data Documentation}

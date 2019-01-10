@@ -11,7 +11,7 @@
 #include "funkcje.h"
 
 //funkcja do wpisania nowych nazw miast glownych
-miasto * stworz_miasto(miasto * &pHead_miasto, std::string nowanazwa )
+miasto * stworz_miasto(miasto * &pHead_miasto, const std::string &nowanazwa )
 {
 	miasto * p = pHead_miasto;
 	while (p)
@@ -118,7 +118,7 @@ void wypisz_miasta(miasto * pHead, std::ostream &wyjscie)
 	wyjscie << pHead->nazwamiasta;
 }
 
-void wypisz_wynik(miasto * pHead, std::string wyjscie)
+void wypisz_wynik(miasto * pHead, const std::string &wyjscie)
 {
 	std::ofstream plik(wyjscie);
 	if (plik)
@@ -184,7 +184,7 @@ bool sprawdz_argumenty(int ile, char ** params , std::string & wejscie, std::str
 	return true;
 }
 
-void wczytajzPliku(std::string wejscie, miasto * &pGlowa)
+void wczytajzPliku(const std::string &wejscie, miasto * &pGlowa)
 {
 	std::ifstream plik(wejscie);
 	if (plik)

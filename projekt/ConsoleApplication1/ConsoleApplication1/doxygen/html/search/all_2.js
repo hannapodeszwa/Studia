@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['debug',['debug',['../_console_application1_8cpp.html#a1614f028c1fef258edfb81fb963609cb',1,'ConsoleApplication1.cpp']]],
-  ['droga',['droga',['../structdroga.html',1,'']]]
+  ['funkcje_2ecpp',['funkcje.cpp',['../funkcje_8cpp.html',1,'']]],
+  ['funkcje_2eh',['funkcje.h',['../funkcje_8h.html',1,'']]]
 ];

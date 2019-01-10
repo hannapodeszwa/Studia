@@ -19,7 +19,7 @@
 @param nowanazwa nazwa miasta dodawanego do listy
 @return Funkcja zwraca wskaznik na nowoutworzone miasto.
 */
-miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa);
+miasto * stworz_miasto(miasto * &pHead, const std::string &nowanazwa);
 
 /**Funkcja dodaje nowe elementy do listy dróg 
 @param pHead_miasto wskaznik na pierwszy element listy
@@ -53,7 +53,7 @@ bool Dijkstra(const std::string &startowy, miasto* &pHead);
 @param wyjscie nazwa pliku wyjsciowego
 @return Funkcja nie zwraca niczego.
 */
-void wypisz_wynik(miasto * pHead, std::string wyjscie);
+void wypisz_wynik(miasto * pHead, const std::string &wyjscie);
 
 /**Funkcja zapisuje trasy do pliku wyjsciowego								
 @param pHead wskaznik na pierwszy element listy
@@ -76,7 +76,7 @@ bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::stri
 @param wejscie nazwa pliku wejsciowego
 @param pGlowa wskaznik na pierwszy element listy
 */
-void wczytajzPliku(std::string wejscie,miasto * &pGlowa);
+void wczytajzPliku(const std::string &wejscie,miasto * &pGlowa);
 
 /**Funkcja usuwa listy drog wszystkich miast
 @param pmiasto wskaznik na kolejne miasto

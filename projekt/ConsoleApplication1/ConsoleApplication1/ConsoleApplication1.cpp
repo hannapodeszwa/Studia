@@ -17,10 +17,6 @@ int main(int ile, char ** params)
 {	
 	std::string wejscie = "", wyjscie = "", start = "";
     bool params_ok = sprawdz_argumenty (ile, params, wejscie, wyjscie, start);
-	/*bool params_ok = true;
-	wejscie = "miasta.txt";
-	wyjscie = "wynik";
-	start = "Szczecin";*/
 	if (params_ok)
 	{
 		//wypisanie danych z pliku

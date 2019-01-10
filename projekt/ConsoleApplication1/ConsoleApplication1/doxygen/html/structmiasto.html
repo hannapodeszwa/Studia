@@ -74,7 +74,9 @@ $(function() {
 Collaboration diagram for miasto:</div>
 <div class="dyncontent">
 <div class="center"><img src="structmiasto__coll__graph.png" border="0" usemap="#miasto_coll__map" alt="Collaboration graph"/></div>
-<!-- MAP 0 -->
+<map name="miasto_coll__map" id="miasto_coll__map">
+<area shape="rect" id="node2" href="structdroga.html" title="{droga\n|+ trasa\l|}" alt="" coords="53,175,116,252"/>
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -92,7 +94,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a8238eaa6785b35e180170ae00996e515"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmiasto.html">miasto</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmiasto.html#a8238eaa6785b35e180170ae00996e515">pMiastoPoprzednie</a></td></tr>
 <tr class="separator:a8238eaa6785b35e180170ae00996e515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Struktura miasto </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nazwamiasta</td><td>nazwa miasta </td></tr>
+    <tr><td class="paramname">pmiasto</td><td>wskaznik na nastepne miasto </td></tr>
+    <tr><td class="paramname">miastaobok</td><td>wskaznik na pierwszy element list drog </td></tr>
+    <tr><td class="paramname">odwiedzony</td><td>zwraca true, gdy miasto zostalo odwiedzone i false i nie zopstalo odwiedzone </td></tr>
+    <tr><td class="paramname">odleglosc_od_centrali</td><td>odleglosc od centrali </td></tr>
+    <tr><td class="paramname">pMiastoPoprzednie</td><td>wskaznik na miasto poprzednie </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="af69437beea5c134e233947df273a48a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af69437beea5c134e233947df273a48a4">&#9670;&nbsp;</a></span>miastaobok</h2>
 

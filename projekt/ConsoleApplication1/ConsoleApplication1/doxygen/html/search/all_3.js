@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['funkcje_2ecpp',['funkcje.cpp',['../funkcje_8cpp.html',1,'']]],
-  ['funkcje_2eh',['funkcje.h',['../funkcje_8h.html',1,'']]],
-  ['funkcje_5fh',['funkcje_H',['../funkcje_8h.html#a9c6a3a9ed8523f0a4e5e8457ff99d0f8',1,'funkcje.h']]]
+  ['help',['help',['../funkcje_8cpp.html#a6afafef7be0d9599c9e551cd4c9885bc',1,'help(int ile, char **params):&#160;funkcje.cpp'],['../funkcje_8h.html#a6afafef7be0d9599c9e551cd4c9885bc',1,'help(int ile, char **params):&#160;funkcje.cpp']]]
 ];

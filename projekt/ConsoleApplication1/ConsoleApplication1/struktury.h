@@ -12,13 +12,7 @@
 #include <ios>
 #include<limits.h>
 
-/**Struktura droga
-@param trasa odleglosc miedzy miastami
-@param pdroga wskaznik na nastepna droge
-@param pmiasto wskaznik na odpowiednie miasto
 
-
-*/
 struct droga;
 
 /**Struktura miasto
@@ -39,6 +33,11 @@ struct miasto
 	miasto * pMiastoPoprzednie;
 };
 
+/**Struktura droga
+@param trasa odleglosc miedzy miastami
+@param pdroga wskaznik na nastepna droge
+@param pmiasto wskaznik na odpowiednie miasto
+*/
 struct droga   
 {
         int trasa;
