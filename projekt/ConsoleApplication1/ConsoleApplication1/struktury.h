@@ -12,14 +12,30 @@
 #include <ios>
 #include<limits.h>
 
+/**Struktura droga
+@param trasa odleglosc miedzy miastami
+@param pdroga wskaznik na nastepna droge
+@param pmiasto wskaznik na odpowiednie miasto
+
+
+*/
 struct droga;
+
+/**Struktura miasto
+@param nazwamiasta nazwa miasta
+@param pmiasto wskaznik na nastepne miasto
+@param miastaobok wskaznik na pierwszy element list drog
+@param odwiedzony zwraca true, gdy miasto zostalo odwiedzone i false i nie zopstalo odwiedzone
+@param odleglosc_od_centrali odleglosc od centrali
+@param pMiastoPoprzednie wskaznik na miasto poprzednie
+*/
 struct miasto 
 {
     std::string nazwamiasta;
-    miasto * pmiasto;   // nastepne miasto na liœcie miast
-    droga *miastaobok;  // lista dróg z danego miasta
-	bool odwiedzony;    // 
-	int odleglosc_od_centrali;
+    miasto * pmiasto;   
+    droga *miastaobok;  
+	bool odwiedzony;     
+	int odleglosc_od_centrali; 
 	miasto * pMiastoPoprzednie;
 };
 

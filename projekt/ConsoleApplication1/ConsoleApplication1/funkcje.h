@@ -21,7 +21,7 @@
 */
 miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa);
 
-/**Funkcja dodaje do listy miasta polaczone z 
+/**Funkcja dodaje nowe elementy do listy dróg 
 @param pHead_miasto wskaznik na pierwszy element listy
 @param kilometry odlegosc pomiedzy miastami
 @param nowe_miasto1 wskaznik na  miasto poczatkowe 
@@ -42,14 +42,11 @@ void wypisz_miasto(miasto * pHead);
 */
 void wypisz_droga(droga * pHead_droga);
 
-/**Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast   
- * @todo algorytm Dijkstry
+/**Funkcja, wykorzystuj¹ca algorytm Dijkstry do znalezienia najkrotszych drog z miasta startowego do pozostalych miast   
 @param startowy miasto, od ktorego beda rozpoczynac sie wszystkie trasy
 @param pHead wskaznik na pierwszy element listy
-@return @todo true, gdy ok, false -- cos poszlo nie tak 
-@todo const std::string & startowy
 */
-void Dijkstra(std::string startowy, miasto* &pHead);
+bool Dijkstra(const std::string &startowy, miasto* &pHead);
 
 /**Funkcja zapisuje wynik do pliku wyjsciowego							
 @param[in, out] pHead wskaznik na pierwszy element listy
@@ -97,6 +94,13 @@ void usun_miasta(miasto* &pHead);
 @param glowa_miasta wskaznik na pierwszy element listy miast
 @return Funkcja nie zwraca niczego.
 */
-void usun(miasto * glowa_miasta);  
+void usun(miasto * glowa_miasta); 
+
+/**Funkcja wyswietla pomoc
+@param ile ilosc argumentow
+@param params tablica argumentow
+@return Funkcja nie zwraca niczego.
+*/
+void help(int ile, char ** params);
 
 #endif

@@ -58,12 +58,12 @@ void wypisz_miasto(miasto * pHead)
 	}
 }
  //algorytm Dijkstry
-void Dijkstra(std::string startowy, miasto* &pHead)
+bool Dijkstra(const std::string &startowy, miasto* &pHead)
 {
 	miasto * p = pHead;
 	while (p) 
 	{
-		if (startowy == p->nazwamiasta) //CO JESLI STARTOWEGO NIE MA?
+		if (startowy == p->nazwamiasta)
 			break; 
 		p = p->pmiasto;
 	}
@@ -103,9 +103,9 @@ void Dijkstra(std::string startowy, miasto* &pHead)
 			}
 			p = najblizsze_miasto;
 		}
-		return;
+		return true;
 	}
-	//std::cout << "Brak miasta startowego" << std::endl;
+	return false; 
 }
 
 void wypisz_miasta(miasto * pHead, std::ostream &wyjscie)
@@ -177,7 +177,7 @@ bool sprawdz_argumenty(int ile, char ** params , std::string & wejscie, std::str
 			params += 2;
 			continue;
 		}
-		if (wejscie == "" || wyjscie == "" || start == "" || params[1]!="-i" /** @todo !!!!! */ or "-s" or "-o" || params[3] != "-i" or "-s" or "-o" || params[5] != "-i" or "-s" or "-o")
+		if (wejscie == "" || wyjscie == "" || start == "" || params[1]!= Wejscie || params[1] != Wyjscie || params[1] != Start || params[3] != Wejscie || params[3] != Wyjscie || params[3] != Start || params[5] != Wejscie || params[5] != Wyjscie || params[5] != Start)
 			return false;
 	}
 	
@@ -254,4 +254,21 @@ void usun(miasto * glowa_miasta )
     usun_miasta(glowa_miasta);
 }
 
+void help(int ile, char ** params)
+{
+	if (ile >= 2)
+		if (std::string(params[1]) == std::string("-h")) // wyswietl help
+		{
+			std::cout << std::endl;
+			std::cout << "SPEDYCJA" << std::endl;
+			std::cout << std::string(params[0]) << " -i <plik_wejsciowy> -s miasto -o <plik_wyjsciowy>" << std::endl;
+			std::cout << std::endl;
+			std::cout << "Program tworzy najkrotsze mozliwe trasy pomiedzy miastem startowym a wszystkimi innymi miastami" << std::endl;
+			std::cout << std::endl;
+			std::cout << " -i: plik z danymi wejsciowymi" << std::endl;
+			std::cout << " -o: plik, w ktorym bedzie zapisany wynik" << std::endl;
+			std::cout << " -s: miasto startowe" << std::endl;
+			
+		}
+}
 
