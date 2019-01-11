@@ -154,6 +154,9 @@ escapeinside={(*@}{@*)},%
 %%%%%%%%%%% NO I ZACZYNA SIE SPRAWOZDANIE %%%%%%%%%%%
 
 \begin{document}
+\kslistofremarks
+\clearpage	
+	
 \frenchspacing
 \thispagestyle{empty}
 \begin{center}
@@ -227,15 +230,15 @@ Zagadnienie przedstawia problem znalezienia najkrótszej możliwej trasy spedycy
 \subsection{Struktury danych}
 
 W programie wykorzystano listy jednokierunkowe do przechowywania miasta i dróg. Każdy element listy miast zawiera trzy wskaźniki: na nastepny element listy miast, na listę dróg oraz na miasto poprzednie, nazwę miasta, odległość od centrali oraz informację, czy dane miasto zostało już odwiedzone. Elementy listy dróg zawierają wskaźnik na odpowiednie miasto z listy miast oraz odległość między tym miastem, a miastem poprzednim.
-Rysunek \ref{fig:listy} przedstawia przykład . 
+Rys. \ref{fig:listy} przedstawia przykład \ksremark{czego?}. 
 Taka struktura danych umożliwia łatwe zastosowanie algorytmu Dijkstry.
 
 
 \subsection{Algorytmy}
 
-Program  wyszukuje najkrótsze możliwe trasy spedycyjne, wykorzystując algorytm Dijkstry.
+Program  wyszukuje najkrótsze możliwe trasy spedycyjne, wykorzystując algorytm Dijkstry \ksremark{odnośnik literaturowy} \cite{Drozdek}. 
 Zaczynając zawsze od miasta położonego najbliżej miasta startowego, porównuje wartość sumy wartości zmiennej \lstinline!odleglosc_od_centrali! poprzedniego miasta i odległości między tymi miastami z aktualną wartością zmiennej \lstinline!odleglosc_od_centrali! miasta następnego. Kolejnym krokiem jest relaksacja odległości od centrali wraz z ewentualnym zapamiętaniem adresu miasta poprzedniego.
-Utworzenie list i ich przejście jest wykonywane w średnim czasie $O(n^2+m)$ (gdzie n oznacza ilość elementów listy miast, a m ilość elementów list dróg).
+Utworzenie list i ich przejście jest wykonywane w średnim czasie $O(n^2+m)$ (gdzie $n$ oznacza liczba elementów listy miast, a $m$ liczba elementów list dróg).
 %\marginpar{Tutaj można umieścić wzory, które są wykorzystane w implementacji:
 %\begin{equation}\label{eq:rownanie}
 %S = \sum^\infty_{n = 0} \frac{1}{n!}e^{n\omega j}.
@@ -355,7 +358,7 @@ Szczegółowy opis typów i funkcji zawarty jest w załączniku.
 
 \section{Testowanie}
 
-Program został przetestowany na różnego rodzaju plikach. Pliki niepoprawne (zawierające zbyt małą ilość miast lub niezawierające odległości) powodują zgłoszenie błędu. Plik pusty nie powoduje zgłoszenia błędu, ale utworzenie pustego pliku wynikowego (nie zostały podane żadne miasta ani odległości). 
+Program został przetestowany na różnego rodzaju plikach. Pliki niepoprawne (zawierające zbyt małą ilość \ksremark{liczba} miast lub niezawierające odległości) powodują zgłoszenie błędu. Plik pusty nie powoduje zgłoszenia błędu, ale utworzenie pustego pliku wynikowego (nie zostały podane żadne miasta ani odległości). 
 
 Program został sprawdzony pod kątem wycieków pamięci.
 
@@ -397,14 +400,14 @@ Program, wyszukujący najkrótsze możliwe trasy spedycyjne, jest programem pros
   number = {5}
 }
 
-@BOOK{
+@BOOK{Drozdek,
   title = {C++. Algorytmy i struktury danych},
   publisher = {Helion},
   year = {2001},
   author = {Adam Drozdek},
   address = {Gliwice}
 }
-@BOOK{
+@BOOK{Neapolitan,
 	title = {Podstawy algorytm\'{o}w z przykładami w C++},
 	publisher = {Helion},
 	year = {2004},

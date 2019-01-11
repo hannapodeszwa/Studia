@@ -24,7 +24,7 @@ int main(int ile, char ** params)
 		wczytajzPliku(wejscie, pGlowa);
 
 		//algorytm Dijkstry
-		bool brak =Dijkstra(start, pGlowa);
+		bool brak = Dijkstra(start, pGlowa);
 		if(brak==false)
 			std::cout << "Brak miasta startowego" << std::endl;
 		wypisz_wynik(pGlowa, wyjscie); // wypisanie wyniku
@@ -36,6 +36,6 @@ int main(int ile, char ** params)
 		std::cout << std::endl;
 		std::cout << "Bledne argumenty" << std::endl;
 	}
- return 0;
+    return 0;
 }
 

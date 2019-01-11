@@ -19,7 +19,7 @@ struct droga;
 @param nazwamiasta nazwa miasta
 @param pmiasto wskaznik na nastepne miasto
 @param miastaobok wskaznik na pierwszy element list drog
-@param odwiedzony zwraca true, gdy miasto zostalo odwiedzone i false i nie zopstalo odwiedzone
+@param odwiedzony true, gdy miasto zostalo odwiedzone, false -- nie zostalo odwiedzone
 @param odleglosc_od_centrali odleglosc od centrali
 @param pMiastoPoprzednie wskaznik na miasto poprzednie
 */
