@@ -45,6 +45,7 @@ void wypisz_droga(droga * pHead_droga);
 /**Funkcja, wykorzystuj¹ca algorytm Dijkstry do znalezienia najkrotszych drog z miasta startowego do pozostalych miast   
 @param startowy miasto, od ktorego beda rozpoczynac sie wszystkie trasy
 @param pHead wskaznik na pierwszy element listy
+@return Funkcja zwraca true, gdy miasto startowe bylo w liscie i false, gdy nie bylo w liscie
 */
 bool Dijkstra(const std::string &startowy, miasto* &pHead);
 
@@ -68,7 +69,7 @@ void wypisz_miasta(miasto * pHead, std::ostream &wyjscie);
 @param[out] wejscie plik wejsciowy
 @param[out] wyjscie plik wyjsciowy
 @param[out] start miasto startowe
-@return Funkcja nie zwraca niczego.
+@return Funkcja zwraca true, gdy podane argumenty byly poprawne i false, gdy byly bledne
 */
 bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::string & wyjscie, std::string& start);
 
