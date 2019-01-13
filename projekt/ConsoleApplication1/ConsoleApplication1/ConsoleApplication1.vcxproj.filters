@@ -32,9 +32,6 @@
     <ClCompile Include="ConsoleApplication1.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="struktury.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="funkcje.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>

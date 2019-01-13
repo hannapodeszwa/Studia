@@ -26,16 +26,16 @@ miasto * stworz_miasto(miasto * &pHead_miasto, const std::string &nowanazwa )
 	return pNowy;
 }
 
-void stworz_droga(miasto * &pHead_miasto, int kilometry,  miasto * &nowe_miasto1,  miasto * &nowe_miasto2)
+void stworz_droga( int kilometry,  miasto * &nowe_miasto1,  miasto * &nowe_miasto2)
 {
 	droga * pHead_droga = nowe_miasto1->miastaobok; //pierwszy element listy droga
 	
-		droga * pNowy = new droga{ kilometry, pHead_droga,  nowe_miasto2 };
-		nowe_miasto1->miastaobok = pNowy;
+	droga * pNowy = new droga{ kilometry, pHead_droga,  nowe_miasto2 };
+	nowe_miasto1->miastaobok = pNowy;
 	
-		pHead_droga = nowe_miasto2->miastaobok; //pierwszy element listy droga
-		pNowy = new droga{ kilometry, pHead_droga, nowe_miasto1 };
-		nowe_miasto2->miastaobok = pNowy;
+	pHead_droga = nowe_miasto2->miastaobok; //pierwszy element listy droga
+	pNowy = new droga{ kilometry, pHead_droga, nowe_miasto1 };
+	nowe_miasto2->miastaobok = pNowy;
 }
 
 void wypisz_droga(droga * pHead_droga)
@@ -58,7 +58,7 @@ void wypisz_miasto(miasto * pHead)
 	}
 }
  //algorytm Dijkstry
-bool Dijkstra(const std::string &startowy, miasto* &pHead)
+bool Dijkstra(const std::string &startowy, miasto* pHead)
 {
 	miasto * p = pHead;
 	while (p) 
@@ -214,7 +214,7 @@ void wczytajzPliku(const std::string &wejscie, miasto * &pGlowa)
 			miasto* pGlowa1 = stworz_miasto(pGlowa, miasto1);
 			miasto* pGlowa2 = stworz_miasto(pGlowa, miasto2);
 			droga * pGlowa_droga = nullptr;
-			stworz_droga(pGlowa, odleglosc, pGlowa1, pGlowa2);// stworzenie grafu (listy list)
+			stworz_droga( odleglosc, pGlowa1, pGlowa2);// stworzenie grafu (listy list)
 		}
 
 		plik.close();
