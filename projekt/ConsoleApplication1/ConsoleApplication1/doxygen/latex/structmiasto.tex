@@ -1,4 +1,4 @@
-\hypertarget{structmiasto}{}\section{miasto Struct Reference}
+\hypertarget{structmiasto}{}\section{Dokumentacja struktury miasto}
 \label{structmiasto}\index{miasto@{miasto}}
 
 
@@ -6,9 +6,14 @@
 
 
 
-Collaboration diagram for miasto\+:
-% FIG 0
-\subsection*{Public Attributes}
+Diagram współpracy dla miasto\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{structmiasto__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Atrybuty publiczne}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string \mbox{\hyperlink{structmiasto_a75a023beb08b889860c2068ffd47318e}{nazwamiasta}}
@@ -25,7 +30,25 @@ int \mbox{\hyperlink{structmiasto_a0c3b5abe9b7ab0df2ceb80f9bd3faec3}{odleglosc\+
 \end{DoxyCompactItemize}
 
 
-\subsection{Member Data Documentation}
+\subsection{Opis szczegółowy}
+Struktura miasto 
+\begin{DoxyParams}{Parametry}
+{\em nazwamiasta} & nazwa miasta \\
+\hline
+{\em pmiasto} & wskaznik na nastepne miasto \\
+\hline
+{\em miastaobok} & wskaznik na pierwszy element list drog \\
+\hline
+{\em odwiedzony} & true, gdy miasto zostalo odwiedzone, false -- nie zostalo odwiedzone \\
+\hline
+{\em odleglosc\+\_\+od\+\_\+centrali} & odleglosc od centrali \\
+\hline
+{\em p\+Miasto\+Poprzednie} & wskaznik na miasto poprzednie \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentacja atrybutów składowych}
 \mbox{\Hypertarget{structmiasto_af69437beea5c134e233947df273a48a4}\label{structmiasto_af69437beea5c134e233947df273a48a4}} 
 \index{miasto@{miasto}!miastaobok@{miastaobok}}
 \index{miastaobok@{miastaobok}!miasto@{miasto}}
@@ -64,6 +87,6 @@ int \mbox{\hyperlink{structmiasto_a0c3b5abe9b7ab0df2ceb80f9bd3faec3}{odleglosc\+
 
 
 
-The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+Dokumentacja dla tej struktury została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{struktury_8h}{struktury.\+h}}\end{DoxyCompactItemize}

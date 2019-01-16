@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "acdfmnopstuw",
+  0: "cdfhmnopstuw",
   1: "dm",
   2: "cfps",
-  3: "amsuw",
+  3: "dhmsuw",
   4: "mnopt",
-  5: "dfs"
+  5: "d"
 };
 
 var indexSectionNames =
@@ -20,11 +20,11 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "All",
-  1: "Classes",
-  2: "Files",
-  3: "Functions",
-  4: "Variables",
-  5: "Macros"
+  0: "Wszystko",
+  1: "Klasy",
+  2: "Pliki",
+  3: "Funkcje",
+  4: "Zmienne",
+  5: "Definicje"
 };
 

@@ -1,4 +1,8 @@
-#pragma once
+#ifndef funkcje_H  
+#define funkcje_H
+
+
+#pragma once   
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -7,8 +11,6 @@
 #include <limits>
 #include <ios>
 #include<limits.h>
-#ifndef funkcje_H  
-#define funkcje_H
 
 #include "struktury.h"
 
@@ -17,16 +19,15 @@
 @param nowanazwa nazwa miasta dodawanego do listy
 @return Funkcja zwraca wskaznik na nowoutworzone miasto.
 */
-miasto * stworz_miasto(miasto * &pHead, std::string nowanazwa);
+miasto * stworz_miasto(miasto * &pHead, const std::string &nowanazwa);
 
-/**Funkcja dodaje do listy miasta polaczone z 
-@param pHead_miasto wskaznik na pierwszy element listy
+/**Funkcja dodaje nowe elementy do listy dróg
 @param kilometry odlegosc pomiedzy miastami
 @param nowe_miasto1 wskaznik na  miasto poczatkowe 
 @param nowe_miasto2 wskaznik na  miasto docelowe
 @return Funkcja nie zwraca niczego.
 */
-void stworz_droga(miasto * &pHead_miasto, int kilometry, miasto * &nowe_miasto1, miasto * &nowe_miasto2);
+void stworz_droga( int kilometry, miasto * & nowe_miasto1, miasto * & nowe_miasto2);
 
 /**Funkcja wypisuje liste miast
 @param pHead wskaznik na pierwszy element listy
@@ -40,21 +41,21 @@ void wypisz_miasto(miasto * pHead);
 */
 void wypisz_droga(droga * pHead_droga);
 
-/**Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast
+/**Funkcja, wykorzystuj¹ca algorytm Dijkstry do znalezienia najkrotszych drog z miasta startowego do pozostalych miast   
 @param startowy miasto, od ktorego beda rozpoczynac sie wszystkie trasy
 @param pHead wskaznik na pierwszy element listy
-@return Funkcja nie zwraca niczego.
+@return Funkcja zwraca true, gdy miasto startowe bylo w liscie i false, gdy nie bylo w liscie
 */
-void algorytm(std::string startowy, miasto* &pHead);
+bool Dijkstra(const std::string &startowy, miasto*  pHead);
 
-/**Funkcja zapisuje wynik do pliku wyjsciowego							
+/**Funkcja zapisuje wynik (wszystkie trasy do miast wraz z odleglosciami) do pliku wyjsciowego							
 @param pHead wskaznik na pierwszy element listy
 @param wyjscie nazwa pliku wyjsciowego
 @return Funkcja nie zwraca niczego.
 */
-void wypisz_wynik(miasto * pHead, std::string wyjscie);
+void wypisz_wynik(miasto * pHead, const std::string &wyjscie);
 
-/**Funkcja zapisuje trasy do pliku wyjsciowego								
+/**Funkcja wypisuje trase do wskazanego miasta								
 @param pHead wskaznik na pierwszy element listy
 @param wyjscie nazwa pliku wyjsciowego
 @return Funkcja nie zwraca niczego.
@@ -67,24 +68,24 @@ void wypisz_miasta(miasto * pHead, std::ostream &wyjscie);
 @param[out] wejscie plik wejsciowy
 @param[out] wyjscie plik wyjsciowy
 @param[out] start miasto startowe
-@return Funkcja nie zwraca niczego.
+@return Funkcja zwraca true, gdy podane argumenty byly poprawne i false, gdy byly bledne
 */
-bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::string & wyjscie, std::string& start);
+bool sprawdz_argumenty(int ile, char ** params, std::string & wejscie, std::string & wyjscie, std::string & start);
 
-/**Funkcja wczytuje dane z pliku
+/**Funkcja wczytuje dane (miasta oraz odleglosci) z pliku
 @param wejscie nazwa pliku wejsciowego
-@param pGlowa wskaznik na pierwszy element listy
+@param[in,out] pGlowa wskaznik na pierwszy element listy
 */
-void wczytajzPliku(std::string wejscie,miasto * &pGlowa);
+void wczytajzPliku(const std::string &wejscie,miasto * &pGlowa);
 
-/**Funkcja usuwa liste drog
+/**Funkcja usuwa listy drog wszystkich miast
 @param pmiasto wskaznik na kolejne miasto
 @return Funkcja nie zwraca niczego.
 */
-void usun_droge( miasto*pmiasto);
+void usun_drogi( miasto*pmiasto);
 
 /**Funkcja usuwa liste miast
-@param pHead wskaznik na pierwszy element listy
+@param[in,out] pHead wskaznik na pierwszy element listy
 @return Funkcja nie zwraca niczego.
 */
 void usun_miasta(miasto* &pHead);
@@ -93,6 +94,13 @@ void usun_miasta(miasto* &pHead);
 @param glowa_miasta wskaznik na pierwszy element listy miast
 @return Funkcja nie zwraca niczego.
 */
-void usun(miasto * glowa_miasta);
+void usun(miasto * glowa_miasta); 
+
+/**Funkcja wyswietla pomoc
+@param ile ilosc argumentow
+@param params tablica argumentow
+@return Funkcja nie zwraca niczego.
+*/
+void help(int ile, char ** params);
 
 #endif

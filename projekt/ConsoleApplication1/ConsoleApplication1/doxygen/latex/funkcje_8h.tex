@@ -1,4 +1,4 @@
-\hypertarget{funkcje_8h}{}\section{funkcje.\+h File Reference}
+\hypertarget{funkcje_8h}{}\section{Dokumentacja pliku funkcje.\+h}
 \label{funkcje_8h}\index{funkcje.\+h@{funkcje.\+h}}
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
@@ -9,72 +9,99 @@
 {\ttfamily \#include $<$ios$>$}\newline
 {\ttfamily \#include $<$limits.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}struktury.\+h\char`\"{}}\newline
-Include dependency graph for funkcje.\+h\+:
-% FIG 0
-This graph shows which files directly or indirectly include this file\+:
-% FIG 1
-\subsection*{Macros}
+Wykres zależności załączania dla funkcje.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{funkcje_8h__incl}
+\end{center}
+\end{figure}
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{funkcje_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Funkcje}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{funkcje_8h_a9c6a3a9ed8523f0a4e5e8457ff99d0f8}{funkcje\+\_\+H}}
-\end{DoxyCompactItemize}
-\subsection*{Functions}
-\begin{DoxyCompactItemize}
+\mbox{\hyperlink{structmiasto}{miasto}} $\ast$ \mbox{\hyperlink{funkcje_8h_ae12a0b2500d5b75f9ce2fc7df85ac34a}{stworz\+\_\+miasto}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&p\+Head, const std\+::string \&nowanazwa)
 \item 
-\mbox{\hyperlink{structmiasto}{miasto}} $\ast$ \mbox{\hyperlink{funkcje_8h_a73095f97a16eb130a65981e7fe5f05ef}{stworz\+\_\+miasto}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&p\+Head, std\+::string nowanazwa)
-\item 
-void \mbox{\hyperlink{funkcje_8h_a7389ce903c9071cc811a37b10910a416}{stworz\+\_\+droga}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&p\+Head\+\_\+miasto, int kilometry, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&nowe\+\_\+miasto1, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&nowe\+\_\+miasto2)
+void \mbox{\hyperlink{funkcje_8h_a5861dbcdab8888ba47cb308b8f47a05a}{stworz\+\_\+droga}} (int kilometry, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&nowe\+\_\+miasto1, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&nowe\+\_\+miasto2)
 \item 
 void \mbox{\hyperlink{funkcje_8h_a6aab3a8dc98794a386d900fd95c134bc}{wypisz\+\_\+miasto}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$p\+Head)
 \item 
 void \mbox{\hyperlink{funkcje_8h_a972eb4d39e18832696cfc49a88688084}{wypisz\+\_\+droga}} (\mbox{\hyperlink{structdroga}{droga}} $\ast$p\+Head\+\_\+droga)
 \item 
-void \mbox{\hyperlink{funkcje_8h_a5fc34203e5ac8fbcf09a97be9324baae}{algorytm}} (std\+::string startowy, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&p\+Head)
+bool \mbox{\hyperlink{funkcje_8h_a3ec9a37438ebb5c2e5e1b7a53b5a1198}{Dijkstra}} (const std\+::string \&startowy, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$p\+Head)
 \item 
-void \mbox{\hyperlink{funkcje_8h_a32b280db3bcb057f8e817d25e38a27b1}{wypisz\+\_\+wynik}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$p\+Head, std\+::string wyjscie)
+void \mbox{\hyperlink{funkcje_8h_af31b7e1c31ad3b478c612cb5a350439d}{wypisz\+\_\+wynik}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$p\+Head, const std\+::string \&wyjscie)
 \item 
 void \mbox{\hyperlink{funkcje_8h_ae23180fadb7ac55d4d66d10ff579f16d}{wypisz\+\_\+miasta}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$p\+Head, std\+::ostream \&wyjscie)
 \item 
 bool \mbox{\hyperlink{funkcje_8h_a40fe3dceb03c4c0dd8aab0292c5e6ffd}{sprawdz\+\_\+argumenty}} (int ile, char $\ast$$\ast$params, std\+::string \&wejscie, std\+::string \&wyjscie, std\+::string \&start)
 \item 
-void \mbox{\hyperlink{funkcje_8h_a6975d209e2b2997bdef356d244dd3a6e}{wczytajz\+Pliku}} (std\+::string wejscie, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&p\+Glowa)
+void \mbox{\hyperlink{funkcje_8h_ade295971762b742b2b2127c41c23bb11}{wczytajz\+Pliku}} (const std\+::string \&wejscie, \mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&p\+Glowa)
 \item 
-void \mbox{\hyperlink{funkcje_8h_ac0a252aeb91478531356e348d2154d3d}{usun\+\_\+droge}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$pmiasto)
+void \mbox{\hyperlink{funkcje_8h_ac3ddb9423da2f8370508b4e7eeeb75f4}{usun\+\_\+drogi}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$pmiasto)
 \item 
 void \mbox{\hyperlink{funkcje_8h_aa23ae00d9a969716225cac3bcecc6d66}{usun\+\_\+miasta}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&p\+Head)
 \item 
 void \mbox{\hyperlink{funkcje_8h_a1cce16b03fb2b1138609a546417fc7dd}{usun}} (\mbox{\hyperlink{structmiasto}{miasto}} $\ast$glowa\+\_\+miasta)
+\item 
+void \mbox{\hyperlink{funkcje_8h_a6afafef7be0d9599c9e551cd4c9885bc}{help}} (int ile, char $\ast$$\ast$params)
 \end{DoxyCompactItemize}
 
 
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{funkcje_8h_a9c6a3a9ed8523f0a4e5e8457ff99d0f8}\label{funkcje_8h_a9c6a3a9ed8523f0a4e5e8457ff99d0f8}} 
-\index{funkcje.\+h@{funkcje.\+h}!funkcje\+\_\+H@{funkcje\+\_\+H}}
-\index{funkcje\+\_\+H@{funkcje\+\_\+H}!funkcje.\+h@{funkcje.\+h}}
-\subsubsection{\texorpdfstring{funkcje\+\_\+H}{funkcje\_H}}
-{\footnotesize\ttfamily \#define funkcje\+\_\+H}
+\subsection{Dokumentacja funkcji}
+\mbox{\Hypertarget{funkcje_8h_a3ec9a37438ebb5c2e5e1b7a53b5a1198}\label{funkcje_8h_a3ec9a37438ebb5c2e5e1b7a53b5a1198}} 
+\index{funkcje.\+h@{funkcje.\+h}!Dijkstra@{Dijkstra}}
+\index{Dijkstra@{Dijkstra}!funkcje.\+h@{funkcje.\+h}}
+\subsubsection{\texorpdfstring{Dijkstra()}{Dijkstra()}}
+{\footnotesize\ttfamily bool Dijkstra (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{startowy,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{p\+Head }\end{DoxyParamCaption})}
 
+Funkcja, wykorzystuj�ca algorytm Dijkstry do znalezienia najkrotszych drog z miasta startowego do pozostalych miast ~\newline
 
-
-\subsection{Function Documentation}
-\mbox{\Hypertarget{funkcje_8h_a5fc34203e5ac8fbcf09a97be9324baae}\label{funkcje_8h_a5fc34203e5ac8fbcf09a97be9324baae}} 
-\index{funkcje.\+h@{funkcje.\+h}!algorytm@{algorytm}}
-\index{algorytm@{algorytm}!funkcje.\+h@{funkcje.\+h}}
-\subsubsection{\texorpdfstring{algorytm()}{algorytm()}}
-{\footnotesize\ttfamily void algorytm (\begin{DoxyParamCaption}\item[{std\+::string}]{startowy,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{p\+Head }\end{DoxyParamCaption})}
-
-Funkcja znajduje najkrotsza droge z miasta startowego do pozostalych miast 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em startowy} & miasto, od ktorego beda rozpoczynac sie wszystkie trasy \\
 \hline
 {\em p\+Head} & wskaznik na pierwszy element listy \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
+Funkcja zwraca true, gdy miasto startowe bylo w liscie i false, gdy nie bylo w liscie 
+\end{DoxyReturn}
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{funkcje_8h_a3ec9a37438ebb5c2e5e1b7a53b5a1198_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{funkcje_8h_a6afafef7be0d9599c9e551cd4c9885bc}\label{funkcje_8h_a6afafef7be0d9599c9e551cd4c9885bc}} 
+\index{funkcje.\+h@{funkcje.\+h}!help@{help}}
+\index{help@{help}!funkcje.\+h@{funkcje.\+h}}
+\subsubsection{\texorpdfstring{help()}{help()}}
+{\footnotesize\ttfamily void help (\begin{DoxyParamCaption}\item[{int}]{ile,  }\item[{char $\ast$$\ast$}]{params }\end{DoxyParamCaption})}
+
+Funkcja wyswietla pomoc 
+\begin{DoxyParams}{Parametry}
+{\em ile} & ilosc argumentow \\
+\hline
+{\em params} & tablica argumentow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-% FIG 2
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{funkcje_8h_a6afafef7be0d9599c9e551cd4c9885bc_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{funkcje_8h_a40fe3dceb03c4c0dd8aab0292c5e6ffd}\label{funkcje_8h_a40fe3dceb03c4c0dd8aab0292c5e6ffd}} 
 \index{funkcje.\+h@{funkcje.\+h}!sprawdz\+\_\+argumenty@{sprawdz\+\_\+argumenty}}
 \index{sprawdz\+\_\+argumenty@{sprawdz\+\_\+argumenty}!funkcje.\+h@{funkcje.\+h}}
@@ -82,7 +109,7 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily bool sprawdz\+\_\+argumenty (\begin{DoxyParamCaption}\item[{int}]{ile,  }\item[{char $\ast$$\ast$}]{params,  }\item[{std\+::string \&}]{wejscie,  }\item[{std\+::string \&}]{wyjscie,  }\item[{std\+::string \&}]{start }\end{DoxyParamCaption})}
 
 Funkcja sprawdza argumenty wywolania programu 
-\begin{DoxyParams}[1]{Parameters}
+\begin{DoxyParams}[1]{Parametry}
  & {\em ile} & ilosc argumentow \\
 \hline
  & {\em params} & tablica argumentow \\
@@ -94,21 +121,24 @@ Funkcja sprawdza argumenty wywolania programu
 \mbox{\tt out}  & {\em start} & miasto startowe \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Funkcja nie zwraca niczego. 
+\begin{DoxyReturn}{Zwraca}
+Funkcja zwraca true, gdy podane argumenty byly poprawne i false, gdy byly bledne 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-% FIG 3
-\mbox{\Hypertarget{funkcje_8h_a7389ce903c9071cc811a37b10910a416}\label{funkcje_8h_a7389ce903c9071cc811a37b10910a416}} 
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{funkcje_8h_a40fe3dceb03c4c0dd8aab0292c5e6ffd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{funkcje_8h_a5861dbcdab8888ba47cb308b8f47a05a}\label{funkcje_8h_a5861dbcdab8888ba47cb308b8f47a05a}} 
 \index{funkcje.\+h@{funkcje.\+h}!stworz\+\_\+droga@{stworz\+\_\+droga}}
 \index{stworz\+\_\+droga@{stworz\+\_\+droga}!funkcje.\+h@{funkcje.\+h}}
 \subsubsection{\texorpdfstring{stworz\+\_\+droga()}{stworz\_droga()}}
-{\footnotesize\ttfamily void stworz\+\_\+droga (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{p\+Head\+\_\+miasto,  }\item[{int}]{kilometry,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{nowe\+\_\+miasto1,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{nowe\+\_\+miasto2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void stworz\+\_\+droga (\begin{DoxyParamCaption}\item[{int}]{kilometry,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{nowe\+\_\+miasto1,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{nowe\+\_\+miasto2 }\end{DoxyParamCaption})}
 
-Funkcja dodaje do listy miasta polaczone z 
-\begin{DoxyParams}{Parameters}
-{\em p\+Head\+\_\+miasto} & wskaznik na pierwszy element listy \\
-\hline
+Funkcja dodaje nowe elementy do listy dr�g 
+\begin{DoxyParams}{Parametry}
 {\em kilometry} & odlegosc pomiedzy miastami \\
 \hline
 {\em nowe\+\_\+miasto1} & wskaznik na miasto poczatkowe \\
@@ -116,29 +146,39 @@ Funkcja dodaje do listy miasta polaczone z
 {\em nowe\+\_\+miasto2} & wskaznik na miasto docelowe \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-% FIG 4
-\mbox{\Hypertarget{funkcje_8h_a73095f97a16eb130a65981e7fe5f05ef}\label{funkcje_8h_a73095f97a16eb130a65981e7fe5f05ef}} 
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{funkcje_8h_a5861dbcdab8888ba47cb308b8f47a05a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{funkcje_8h_ae12a0b2500d5b75f9ce2fc7df85ac34a}\label{funkcje_8h_ae12a0b2500d5b75f9ce2fc7df85ac34a}} 
 \index{funkcje.\+h@{funkcje.\+h}!stworz\+\_\+miasto@{stworz\+\_\+miasto}}
 \index{stworz\+\_\+miasto@{stworz\+\_\+miasto}!funkcje.\+h@{funkcje.\+h}}
 \subsubsection{\texorpdfstring{stworz\+\_\+miasto()}{stworz\_miasto()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structmiasto}{miasto}}$\ast$ stworz\+\_\+miasto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{p\+Head,  }\item[{std\+::string}]{nowanazwa }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmiasto}{miasto}}$\ast$ stworz\+\_\+miasto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{p\+Head,  }\item[{const std\+::string \&}]{nowanazwa }\end{DoxyParamCaption})}
 
 Funkcja dodaje nowe miasto do listy 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em p\+Head} & wskaznik na pierwszy element listy \\
 \hline
 {\em nowanazwa} & nazwa miasta dodawanego do listy \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Funkcja zwraca wska�nik na nowoutworzone miasto. 
+\begin{DoxyReturn}{Zwraca}
+Funkcja zwraca wskaznik na nowoutworzone miasto. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-% FIG 5
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{funkcje_8h_ae12a0b2500d5b75f9ce2fc7df85ac34a_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{funkcje_8h_a1cce16b03fb2b1138609a546417fc7dd}\label{funkcje_8h_a1cce16b03fb2b1138609a546417fc7dd}} 
 \index{funkcje.\+h@{funkcje.\+h}!usun@{usun}}
 \index{usun@{usun}!funkcje.\+h@{funkcje.\+h}}
@@ -146,33 +186,48 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily void usun (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{glowa\+\_\+miasta }\end{DoxyParamCaption})}
 
 Funkcja usuwa liste miast i drog 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em glowa\+\_\+miasta} & wskaznik na pierwszy element listy miast \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-% FIG 6
-Here is the caller graph for this function\+:
-% FIG 7
-\mbox{\Hypertarget{funkcje_8h_ac0a252aeb91478531356e348d2154d3d}\label{funkcje_8h_ac0a252aeb91478531356e348d2154d3d}} 
-\index{funkcje.\+h@{funkcje.\+h}!usun\+\_\+droge@{usun\+\_\+droge}}
-\index{usun\+\_\+droge@{usun\+\_\+droge}!funkcje.\+h@{funkcje.\+h}}
-\subsubsection{\texorpdfstring{usun\+\_\+droge()}{usun\_droge()}}
-{\footnotesize\ttfamily void usun\+\_\+droge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{pmiasto }\end{DoxyParamCaption})}
+Oto graf wywołań dla tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{funkcje_8h_a1cce16b03fb2b1138609a546417fc7dd_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{funkcje_8h_a1cce16b03fb2b1138609a546417fc7dd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{funkcje_8h_ac3ddb9423da2f8370508b4e7eeeb75f4}\label{funkcje_8h_ac3ddb9423da2f8370508b4e7eeeb75f4}} 
+\index{funkcje.\+h@{funkcje.\+h}!usun\+\_\+drogi@{usun\+\_\+drogi}}
+\index{usun\+\_\+drogi@{usun\+\_\+drogi}!funkcje.\+h@{funkcje.\+h}}
+\subsubsection{\texorpdfstring{usun\+\_\+drogi()}{usun\_drogi()}}
+{\footnotesize\ttfamily void usun\+\_\+drogi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{pmiasto }\end{DoxyParamCaption})}
 
-Funkcja usuwa liste drog 
-\begin{DoxyParams}{Parameters}
+Funkcja usuwa listy drog wszystkich miast 
+\begin{DoxyParams}{Parametry}
 {\em pmiasto} & wskaznik na kolejne miasto \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-% FIG 8
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{funkcje_8h_ac3ddb9423da2f8370508b4e7eeeb75f4_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{funkcje_8h_aa23ae00d9a969716225cac3bcecc6d66}\label{funkcje_8h_aa23ae00d9a969716225cac3bcecc6d66}} 
 \index{funkcje.\+h@{funkcje.\+h}!usun\+\_\+miasta@{usun\+\_\+miasta}}
 \index{usun\+\_\+miasta@{usun\+\_\+miasta}!funkcje.\+h@{funkcje.\+h}}
@@ -180,32 +235,47 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily void usun\+\_\+miasta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{p\+Head }\end{DoxyParamCaption})}
 
 Funkcja usuwa liste miast 
-\begin{DoxyParams}{Parameters}
-{\em p\+Head} & wskaznik na pierwszy element listy \\
+\begin{DoxyParams}[1]{Parametry}
+\mbox{\tt in,out}  & {\em p\+Head} & wskaznik na pierwszy element listy \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-% FIG 9
-\mbox{\Hypertarget{funkcje_8h_a6975d209e2b2997bdef356d244dd3a6e}\label{funkcje_8h_a6975d209e2b2997bdef356d244dd3a6e}} 
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{funkcje_8h_aa23ae00d9a969716225cac3bcecc6d66_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{funkcje_8h_ade295971762b742b2b2127c41c23bb11}\label{funkcje_8h_ade295971762b742b2b2127c41c23bb11}} 
 \index{funkcje.\+h@{funkcje.\+h}!wczytajz\+Pliku@{wczytajz\+Pliku}}
 \index{wczytajz\+Pliku@{wczytajz\+Pliku}!funkcje.\+h@{funkcje.\+h}}
 \subsubsection{\texorpdfstring{wczytajz\+Pliku()}{wczytajzPliku()}}
-{\footnotesize\ttfamily void wczytajz\+Pliku (\begin{DoxyParamCaption}\item[{std\+::string}]{wejscie,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{p\+Glowa }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void wczytajz\+Pliku (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{wejscie,  }\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$\&}]{p\+Glowa }\end{DoxyParamCaption})}
 
-Funkcja wczytuje dane z pliku 
-\begin{DoxyParams}{Parameters}
-{\em wejscie} & nazwa pliku wejsciowego \\
+Funkcja wczytuje dane (miasta oraz odleglosci) z pliku 
+\begin{DoxyParams}[1]{Parametry}
+ & {\em wejscie} & nazwa pliku wejsciowego \\
 \hline
-{\em p\+Glowa} & wskaznik na pierwszy element listy \\
+\mbox{\tt in,out}  & {\em p\+Glowa} & wskaznik na pierwszy element listy \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-% FIG 10
-Here is the caller graph for this function\+:
-% FIG 11
+Oto graf wywołań dla tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{funkcje_8h_ade295971762b742b2b2127c41c23bb11_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{funkcje_8h_ade295971762b742b2b2127c41c23bb11_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{funkcje_8h_a972eb4d39e18832696cfc49a88688084}\label{funkcje_8h_a972eb4d39e18832696cfc49a88688084}} 
 \index{funkcje.\+h@{funkcje.\+h}!wypisz\+\_\+droga@{wypisz\+\_\+droga}}
 \index{wypisz\+\_\+droga@{wypisz\+\_\+droga}!funkcje.\+h@{funkcje.\+h}}
@@ -213,36 +283,51 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily void wypisz\+\_\+droga (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdroga}{droga}} $\ast$}]{p\+Head\+\_\+droga }\end{DoxyParamCaption})}
 
 Funkcja wypisuje liste drog 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em p\+Head\+\_\+droga} & wskaznik na pierwszy element listy \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-% FIG 12
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{funkcje_8h_a972eb4d39e18832696cfc49a88688084_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{funkcje_8h_ae23180fadb7ac55d4d66d10ff579f16d}\label{funkcje_8h_ae23180fadb7ac55d4d66d10ff579f16d}} 
 \index{funkcje.\+h@{funkcje.\+h}!wypisz\+\_\+miasta@{wypisz\+\_\+miasta}}
 \index{wypisz\+\_\+miasta@{wypisz\+\_\+miasta}!funkcje.\+h@{funkcje.\+h}}
 \subsubsection{\texorpdfstring{wypisz\+\_\+miasta()}{wypisz\_miasta()}}
 {\footnotesize\ttfamily void wypisz\+\_\+miasta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{p\+Head,  }\item[{std\+::ostream \&}]{wyjscie }\end{DoxyParamCaption})}
 
-Funkcja zapisuje trasy do pliku wyjsciowego ~\newline
+Funkcja wypisuje trase do wskazanego miasta ~\newline
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em p\+Head} & wskaznik na pierwszy element listy \\
 \hline
 {\em wyjscie} & nazwa pliku wyjsciowego \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-% FIG 13
-Here is the caller graph for this function\+:
-% FIG 14
+Oto graf wywołań dla tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{funkcje_8h_ae23180fadb7ac55d4d66d10ff579f16d_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{funkcje_8h_ae23180fadb7ac55d4d66d10ff579f16d_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{funkcje_8h_a6aab3a8dc98794a386d900fd95c134bc}\label{funkcje_8h_a6aab3a8dc98794a386d900fd95c134bc}} 
 \index{funkcje.\+h@{funkcje.\+h}!wypisz\+\_\+miasto@{wypisz\+\_\+miasto}}
 \index{wypisz\+\_\+miasto@{wypisz\+\_\+miasto}!funkcje.\+h@{funkcje.\+h}}
@@ -250,33 +335,48 @@ Here is the caller graph for this function\+:
 {\footnotesize\ttfamily void wypisz\+\_\+miasto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{p\+Head }\end{DoxyParamCaption})}
 
 Funkcja wypisuje liste miast 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em p\+Head} & wskaznik na pierwszy element listy \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-% FIG 15
-\mbox{\Hypertarget{funkcje_8h_a32b280db3bcb057f8e817d25e38a27b1}\label{funkcje_8h_a32b280db3bcb057f8e817d25e38a27b1}} 
+Oto graf wywołań dla tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{funkcje_8h_a6aab3a8dc98794a386d900fd95c134bc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{funkcje_8h_af31b7e1c31ad3b478c612cb5a350439d}\label{funkcje_8h_af31b7e1c31ad3b478c612cb5a350439d}} 
 \index{funkcje.\+h@{funkcje.\+h}!wypisz\+\_\+wynik@{wypisz\+\_\+wynik}}
 \index{wypisz\+\_\+wynik@{wypisz\+\_\+wynik}!funkcje.\+h@{funkcje.\+h}}
 \subsubsection{\texorpdfstring{wypisz\+\_\+wynik()}{wypisz\_wynik()}}
-{\footnotesize\ttfamily void wypisz\+\_\+wynik (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{p\+Head,  }\item[{std\+::string}]{wyjscie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void wypisz\+\_\+wynik (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmiasto}{miasto}} $\ast$}]{p\+Head,  }\item[{const std\+::string \&}]{wyjscie }\end{DoxyParamCaption})}
 
-Funkcja zapisuje wynik do pliku wyjsciowego ~\newline
+Funkcja zapisuje wynik (wszystkie trasy do miast wraz z odleglosciami) do pliku wyjsciowego ~\newline
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parametry}
 {\em p\+Head} & wskaznik na pierwszy element listy \\
 \hline
 {\em wyjscie} & nazwa pliku wyjsciowego \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Zwraca}
 Funkcja nie zwraca niczego. 
 \end{DoxyReturn}
-Here is the call graph for this function\+:
-% FIG 16
-Here is the caller graph for this function\+:
-% FIG 17
+Oto graf wywołań dla tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{funkcje_8h_af31b7e1c31ad3b478c612cb5a350439d_cgraph}
+\end{center}
+\end{figure}
+Oto graf wywoływań tej funkcji\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{funkcje_8h_af31b7e1c31ad3b478c612cb5a350439d_icgraph}
+\end{center}
+\end{figure}

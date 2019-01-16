@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['algorytm',['algorytm',['../funkcje_8cpp.html#a5fc34203e5ac8fbcf09a97be9324baae',1,'algorytm(std::string startowy, miasto *&amp;pHead):&#160;funkcje.cpp'],['../funkcje_8h.html#a5fc34203e5ac8fbcf09a97be9324baae',1,'algorytm(std::string startowy, miasto *&amp;pHead):&#160;funkcje.cpp']]]
+  ['dijkstra',['Dijkstra',['../funkcje_8cpp.html#a3ec9a37438ebb5c2e5e1b7a53b5a1198',1,'Dijkstra(const std::string &amp;startowy, miasto *pHead):&#160;funkcje.cpp'],['../funkcje_8h.html#a3ec9a37438ebb5c2e5e1b7a53b5a1198',1,'Dijkstra(const std::string &amp;startowy, miasto *pHead):&#160;funkcje.cpp']]]
 ];
