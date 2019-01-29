@@ -4,9 +4,25 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
+#include <limits>
+#include<cmath>
+#include<vector>
+#include<chrono>
+#include<random>
+#include <iomanip>
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<ctime>
 
 
-
+int losuj()
+{
+	std::default_random_engine silnik;
+	silnik.seed(std::chrono::system_clock::now().time_since_epoch().count());
+	std::uniform_int_distribution<int> rozklad_int (5, 10);
+	return rozklad_int(silnik);
+}
 
 struct Student
 {
@@ -62,6 +78,7 @@ void dodaj(Student * &pHead, std::string &nazwisko, double ocena)
 		Student * pNowy = new Student{ nazwisko, p, ocena };
 		if (p == pHead&&nazwisko > p->nazwisko)
 			poprzedni = pNowy;
+		else
 		poprzedni->pNext = pNowy;
 	}
 		
@@ -97,13 +114,55 @@ Student * scal(Student * pHead1, Student * pHead2)
 	return wynik;
 
 }
+void wypisz_Student(Student * pHead)
+{
+	while (pHead)
+	{
+		std::cout << pHead->nazwisko << std::endl;
+		pHead = pHead->pNext;
+	}
+}
+
+void wypisz(Egzaminator * pHead)
+{
+	while (pHead)
+	{
+		std::cout << std::endl;
+		std::cout << pHead->nazwisko << std::endl;
+		wypisz_Student(pHead->pStudenci);
+		pHead=pHead->pNext;
+	}
+}
 
 int main()
 {
+
 	Egzaminator* pHead = nullptr;
 	Student * nowyStudent = nullptr;
-	std::string nazwisko = "fdhsfjihdsifh";
-	dodajStudentaEgzaminatorowi(nowyStudent, pHead, nazwisko, 0);
+		srand(time(NULL));
+		std::string wylosowane;
+		for (int j = 0; j < 10; j++)
+		{
+			wylosowane = "";
+			std::string los = "";
+			int liczba = losuj();
+			for (int i=0; i<liczba; i++)
+			{
+				los = ((rand() % ('z' - 'a')) + 'a');
+				wylosowane = wylosowane + los;
+			}
+			//std::cout << wylosowane << std::endl;
+			
+			std::string nazwisko = wylosowane;
+			dodajEgzaminatora(pHead, nazwisko);
+			for (int i : { 5, 2, 8, 1, 0, 6, 3 })
+			{
+				
+				//dodajStudentaEgzaminatorowi(nowyStudent, pHead, nazwisko, i);
+			}
+		}
+
+		wypisz(pHead);
 	
     return 0;
 }

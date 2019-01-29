@@ -11,15 +11,15 @@
 char tablica(std::istream & wejscie, char tab[8][8])
  {
 	 std::ifstream wejscie("plik");
-	std::string szachowinca;
-	while(wejscie >> szachowinca)
+	std::string szachownica;
+	while(wejscie >> szachownica)
 	//while (std::getline(wejscie, szachownica))
 	{
 		std::stringstream znak;
 		znak << szachownica;
 		for (int i = 0; i < 8;i++)
 		{
-			for (j = 0;j < 8;j++)
+			for (int j = 0;j < 8;j++)
 				tab[i][j] = znak;
 		}
 	}
