@@ -1,0 +1,39 @@
+﻿  Menu.c
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(24,31): warning C4474: „scanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(24,31): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(81,91): warning C4474: „printf”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(81,91): message : symbole zastępcze i ich parametry oczekują 0 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 1
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(85,70): warning C4474: „printf”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(85,70): message : symbole zastępcze i ich parametry oczekują 0 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 1
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(113,31): warning C4474: „scanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Menu.c(113,31): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+  main.c
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\main.c(53,11): warning C4477: „printf”: ciąg formatu „%d” wymaga argumentu typu „int”, ale argument 1 ze zmienną liczbą argumentów ma typ „player *”
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\main.c(53,11): warning C4313: „printf”: „%d” w ciągu formatu powoduje konflikt z argumentem 1 typu „player *”
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\main.c(53,11): warning C4477: „printf”: ciąg formatu „%d” wymaga argumentu typu „int”, ale argument 2 ze zmienną liczbą argumentów ma typ „letter *”
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\main.c(53,11): warning C4313: „printf”: „%d” w ciągu formatu powoduje konflikt z argumentem 2 typu „letter *”
+  Play.c
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Play.c(189,31): warning C4474: „scanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Play.c(189,31): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+  Prepare_game.c
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Prepare_game.c(61,15): warning C4244: "funkcja": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Prepare_game.c(116,38): warning C4047: "=": "char **" różni się w poziomach operatorów pośrednich od "char *"
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Prepare_game.c(108,1): warning C4047: "inicjowanie": "char *" różni się w poziomach operatorów pośrednich od "int"
+  Release_memory.c
+  Results.c
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Results.c(35,31): warning C4474: „scanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Results.c(35,31): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Results.c(93,1): warning C4047: "inicjowanie": "char *" różni się w poziomach operatorów pośrednich od "int"
+  Settings.c
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Settings.c(21,31): warning C4474: „scanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Settings.c(21,31): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Settings.c(53,31): warning C4474: „scanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Settings.c(53,31): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Settings.c(69,31): warning C4474: „scanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Settings.c(69,31): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+  Wheel.c
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Wheel.c(22,40): warning C4474: „fscanf_s”: przekazano za dużo argumentów dla ciągu formatowania
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Wheel.c(22,40): message : symbole zastępcze i ich parametry oczekują 1 argumentów ze zmienną liczbą argumentów, ale podano następującą liczbę zmiennych argumentów: 2
+C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\Kolo fortuny\Wheel.c(39,15): warning C4013: niezdefiniowany "kbhit"; przy założeniu, że extern zwraca int
+  Generowanie kodu...
+  Kolo fortuny.vcxproj -> C:\Users\hanna\Desktop\programowanie\github\1c4580b6-gr72-repo\Projekt\Kolo fortuny\x64\Debug\Kolo fortuny.exe
